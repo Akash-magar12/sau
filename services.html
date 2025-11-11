@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>
+      Our Services | Saubhagya Architects — Architecture, Interiors & Urban
+      Design
+    </title>
+    <meta
+      name="description"
+      content="Explore the comprehensive services at Saubhagya Architects, from interior and residential design to sustainable architecture and 3D visualization."
+    />
+    <meta name="author" content="Saubhagya Architects" />
+    <link rel="shortcut icon" href="./assets/logo.png" type="image/png" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              accent: "#bfa181", // Classic beige/gold accent
+              dark: "#1f2937", // Dark gray for text
+            },
+            fontFamily: {
+              sans: ["Montserrat", "sans-serif"],
+              display: ["Playfair Display", "serif"],
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .animate-fade-in-up {
+        animation: fadeInUp 1s ease-out forwards;
+      }
+
+      .hero-slide {
+        position: absolute;
+        inset: 0;
+        background-size: cover;
+        background-position: center;
+        opacity: 0;
+        transition: opacity 1.5s ease-in-out;
+      }
+      .hero-slide.visible {
+        opacity: 1;
+      }
+
+      /* Fade-in on scroll */
+      .fade-in {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.8s cubic-bezier(0.165, 0.84, 0.44, 1),
+          transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+      }
+      .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Added from your file */
+      .service-card {
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .service-card:hover {
+        transform: translateY(-8px) scale(1.02);
+      }
+      .parallax {
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: center;
+      }
+
+      nav a {
+        position: relative;
+      }
+      nav a::after {
+        content: "";
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: #bfa181;
+        transition: width 0.3s ease;
+      }
+      nav a:hover::after {
+        width: 100%;
+      }
+      nav a.logo-link::after {
+        display: none;
+        content: none;
+      }
+      nav a.logo-link:hover::after {
+        width: 0;
+      }
+      .glass {
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+      .glass-dark {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+      .text-gradient {
+        background: linear-gradient(135deg, #bfa181 0%, #8b7355 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+    </style>
+  </head>
+  <body class="bg-white text-dark overflow-x-hidden">
+    <nav class="fixed top-0 left-0 right-0 z-50 glass border-b border-gray-200">
+      <div
+        class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between"
+      >
+        <div class="flex items-center gap-3">
+          <a href="./index.html" class="flex items-center gap-3 logo-link">
+            <div
+              class="w-12 h-12 sm:h-14  sm:w-14 rounded-full flex items-center justify-center p-2"
+            >
+              <img
+                src="../../assets/logo.png"
+                alt="Saubhagya Architects Logo"
+              />
+            </div>
+            <div>
+              <h2 class="text-lg sm:text-3xl font-bold text-dark">Saubhagya Architects</h2>
+              <span class="text-base text-gray-500">Exceeding Expectations</span>
+            </div>
+          </a>
+        </div>
+
+        <div class="hidden md:flex items-center gap-8">
+          <a
+            href="./index.html"
+            class="text-sm font-medium text-dark hover:text-accent transition"
+            >Home</a
+          >
+          <a
+            href="./about.html"
+            class="text-sm font-medium text-dark hover:text-accent transition"
+            >About</a
+          >
+          <a
+            href="./portfolio.html"
+            class="text-sm font-medium text-dark hover:text-accent transition"
+            >Portfolio</a
+          >
+          <a
+            href="./services.html"
+            class="text-sm font-medium text-dark hover:text-accent transition"
+            >Services</a
+          >
+          <a
+            href="./blog.html"
+            class="text-sm font-medium text-dark hover:text-accent transition"
+            >Blog</a
+          >
+          <a href="./contact.html" class="">Contact</a>
+        </div>
+
+        <button id="menuBtn" class="md:hidden text-2xl text-dark">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+
+      <div
+        id="mobileMenu"
+        class="hidden md:hidden w-full glass border-t border-gray-200"
+      >
+        <a
+          href="./index.html"
+          class="block py-4 px-6 text-sm font-medium text-dark hover:bg-gray-100 transition"
+          >Home</a
+        >
+        <a
+          href="./about.html"
+          class="block py-4 px-6 text-sm font-medium text-dark hover:bg-gray-100 transition"
+          >About</a
+        >
+        <a
+          href="./portfolio.html"
+          class="block py-4 px-6 text-sm font-medium text-dark hover:bg-gray-100 transition"
+          >Portfolio</a
+        >
+        <a
+          href="./services.html"
+          class="block py-4 px-6 text-sm font-medium text-dark hover:bg-gray-100 transition"
+          >Services</a
+        >
+        <a
+          href="./blog.html"
+          class="block py-4 px-6 text-sm font-medium text-dark hover:bg-gray-100 transition"
+          >Blog</a
+        >
+        <a
+          href="./contact.html"
+          class="block py-4 px-6 text-sm font-medium text-dark hover:bg-gray-100 transition"
+          >Contact</a
+        >
+      </div>
+    </nav>
+
+    <main class="pt-20">
+      <section class="relative h-screen flex items-center">
+        <div class="absolute inset-0 z-0">
+          <div
+            class="hero-slide"
+            style="background-image: url('./assets/sustaniable.jpg')"
+          ></div>
+          <div
+            class="hero-slide"
+            style="background-image: url('./assets/residential.jpg')"
+          ></div>
+          <div
+            class="hero-slide"
+            style="background-image: url('./assets/interior.jpg')"
+          ></div>
+          <div
+            class="absolute inset-0 bg-gradient-to-br from-black/80 via-black/70 to-transparent"
+          ></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-6 w-full">
+          <div class="max-w-3xl animate-fade-in-up">
+            <div class="inline-block glass-dark px-4 py-2 rounded-full mt-10">
+              <span class="text-xs font-semibold tracking-widest text-accent"
+                >OUR EXPERTISE</span
+              >
+            </div>
+            <h1
+              class="text-6xl md:text-8xl font-display font-black mb-6 leading-none text-white"
+            >
+              Our Services
+            </h1>
+            <p class="text-xl text-gray-300 mb-8 max-w-2xl leading-relaxed">
+              Comprehensive architecture and design solutions tailored to your
+              vision.
+            </p>
+          </div>
+        </div>
+
+        <div
+          class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce"
+        >
+          <i class="fas fa-chevron-down text-2xl text-accent"></i>
+        </div>
+      </section>
+
+      <section class="services-gallery bg-white py-24 px-6">
+        <div class="gallery-container mx-auto max-w-6xl">
+          <div class="mb-16 text-center fade-in">
+            <h2
+              class="gallery-title text-5xl md:text-6xl font-display font-bold text-dark"
+            >
+              Our Expertise
+            </h2>
+            <p class="gallery-subtitle mt-4 text-lg text-gray-600">
+              A comprehensive range of architectural and design services
+            </p>
+          </div>
+
+          <div
+            class="gallery-grid grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3"
+          >
+            <a
+              href="./pages/services/interior-design.html"
+              class="group service-card overflow-hidden rounded-lg border border-gray-200 bg-white text-gray-600 shadow-sm transition-all duration-300 hover:shadow-lg fade-in"
+            >
+              <div class="card-image h-52 w-full overflow-hidden">
+                <img
+                  src="./assets/interior.jpg"
+                  alt="Interior Design"
+                  class="h-full w-full object-cover transition-transform duration-400 group-hover:scale-105"
+                />
+              </div>
+              <div class="card-content p-6">
+                <h3 class="mb-2 text-2xl font-display font-bold text-dark">
+                  Interior Design
+                </h3>
+                <p class="text-base leading-relaxed text-gray-600">
+                  Create warm, functional interiors combining aesthetics with
+                  practicality, custom furniture, and innovative lighting
+                  solutions.
+                </p>
+              </div>
+            </a>
+
+            <a
+              href="./pages/services/residential-architecture.html"
+              class="group service-card overflow-hidden rounded-lg border border-gray-200 bg-white text-gray-600 shadow-sm transition-all duration-300 hover:shadow-lg fade-in"
+            >
+              <div class="card-image h-52 w-full overflow-hidden">
+                <img
+                  src="./assets/residential.jpg"
+                  alt="Residential Architecture"
+                  class="h-full w-full object-cover transition-transform duration-400 group-hover:scale-105"
+                />
+              </div>
+              <div class="card-content p-6">
+                <h3 class="mb-2 text-2xl font-display font-bold text-dark">
+                  Residential Architecture
+                </h3>
+                <p class="text-base leading-relaxed text-gray-600">
+                  Design residences that balance light, privacy, and spectacular
+                  views reflecting the personality of inhabitants.
+                </p>
+              </div>
+            </a>
+
+            <a
+              href="./pages/services/commercial-fitouts.html"
+              class="group service-card overflow-hidden rounded-lg border border-gray-200 bg-white text-gray-600 shadow-sm transition-all duration-300 hover:shadow-lg fade-in"
+            >
+              <div class="card-image h-52 w-full overflow-hidden">
+                <img
+                  src="./assets/commercial.jpg"
+                  alt="Commercial Fit-outs"
+                  class="h-full w-full object-cover transition-transform duration-400 group-hover:scale-105"
+                />
+              </div>
+              <div class="card-content p-6">
+                <h3 class="mb-2 text-2xl font-display font-bold text-dark">
+                  Commercial Fit-outs
+                </h3>
+                <p class="text-base leading-relaxed text-gray-600">
+                  Design offices and retail spaces that align brand identity
+                  with ergonomics, compliance, and customer experience.
+                </p>
+              </div>
+            </a>
+
+            <a
+              href="./pages/services/landscape-design.html"
+              class="group service-card overflow-hidden rounded-lg border border-gray-200 bg-white text-gray-600 shadow-sm transition-all duration-300 hover:shadow-lg fade-in"
+            >
+              <div class="card-image h-52 w-full overflow-hidden">
+                <img
+                  src="https://images.pexels.com/photos/2693529/pexels-photo-2693529.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                  alt="Landscape Design"
+                  class="h-full w-full object-cover transition-transform duration-400 group-hover:scale-105"
+                />
+              </div>
+              <div class="card-content p-6">
+                <h3 class="mb-2 text-2xl font-display font-bold text-dark">
+                  Landscape Design
+                </h3>
+                <p class="text-base leading-relaxed text-gray-600">
+                  Create outdoor spaces that harmonize with natural surroundings
+                  while providing functional and aesthetic beauty.
+                </p>
+              </div>
+            </a>
+
+            <a
+              href="./pages/services/sustainable-design.html"
+              class="group service-card overflow-hidden rounded-lg border border-gray-200 bg-white text-gray-600 shadow-sm transition-all duration-300 hover:shadow-lg fade-in"
+            >
+              <div class="card-image h-52 w-full overflow-hidden">
+                <img
+                  src="./assets/sustaniable.jpg"
+                  alt="Sustainable Design"
+                  class="h-full w-full object-cover transition-transform duration-400 group-hover:scale-105"
+                />
+              </div>
+              <div class="card-content p-6">
+                <h3 class="mb-2 text-2xl font-display font-bold text-dark">
+                  Sustainable Design
+                </h3>
+                <p class="text-base leading-relaxed text-gray-600">
+                  Develop environmentally conscious designs using net zero
+                  principles, renewable materials, and energy efficient
+                  solutions.
+                </p>
+              </div>
+            </a>
+
+            <a
+              href="./pages/services/project-management.html"
+              class="group service-card overflow-hidden rounded-lg border border-gray-200 bg-white text-gray-600 shadow-sm transition-all duration-300 hover:shadow-lg fade-in"
+            >
+              <div class="card-image h-52 w-full overflow-hidden">
+                <img
+                  src="./assets/project.jpg"
+                  alt="Project Management"
+                  class="h-full w-full object-cover transition-transform duration-400 group-hover:scale-105"
+                />
+              </div>
+              <div class="card-content p-6">
+                <h3 class="mb-2 text-2xl font-display font-bold text-dark">
+                  Project Management
+                </h3>
+                <p class="text-base leading-relaxed text-gray-600">
+                  Expert oversight of construction projects ensuring timely
+                  delivery, budget compliance, and quality standards.
+                </p>
+              </div>
+            </a>
+
+            <a
+              href="./pages/services/facade-design.html"
+              class="group service-card overflow-hidden rounded-lg border border-gray-200 bg-white text-gray-600 shadow-sm transition-all duration-300 hover:shadow-lg fade-in"
+            >
+              <div class="card-image h-52 w-full overflow-hidden">
+                <img
+                  src="https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                  alt="Façade Design"
+                  class="h-full w-full object-cover transition-transform duration-400 group-hover:scale-105"
+                />
+              </div>
+              <div class="card-content p-6">
+                <h3 class="mb-2 text-2xl font-display font-bold text-dark">
+                  Façade Design
+                </h3>
+                <p class="text-base leading-relaxed text-gray-600">
+                  Create striking building exteriors that combine aesthetics
+                  with weather protection and energy efficiency.
+                </p>
+              </div>
+            </a>
+
+            <a
+              href="./pages/services/lighting-design.html"
+              class="group service-card overflow-hidden rounded-lg border border-gray-200 bg-white text-gray-600 shadow-sm transition-all duration-300 hover:shadow-lg fade-in"
+            >
+              <div class="card-image h-52 w-full overflow-hidden">
+                <img
+                  src="https://images.pexels.com/photos/279607/pexels-photo-279607.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                  alt="Lighting Design"
+                  class="h-full w-full object-cover transition-transform duration-400 group-hover:scale-105"
+                />
+              </div>
+              <div class="card-content p-6">
+                <h3 class="mb-2 text-2xl font-display font-bold text-dark">
+                  Lighting Design
+                </h3>
+                <p class="text-base leading-relaxed text-gray-600">
+                  Design sophisticated lighting schemes that enhance ambiance,
+                  functionality, and energy efficiency in spaces.
+                </p>
+              </div>
+            </a>
+
+            <a
+              href="./pages/services/furniture-design.html"
+              class="group service-card overflow-hidden rounded-lg border border-gray-200 bg-white text-gray-600 shadow-sm transition-all duration-300 hover:shadow-lg fade-in"
+            >
+              <div class="card-image h-52 w-full overflow-hidden">
+                <img
+                  src="https://images.pexels.com/photos/276528/pexels-photo-276528.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                  alt="Furniture Design"
+                  class="h-full w-full object-cover transition-transform duration-400 group-hover:scale-105"
+                />
+              </div>
+              <div class="card-content p-6">
+                <h3 class="mb-2 text-2xl font-display font-bold text-dark">
+                  Furniture Design
+                </h3>
+                <p class="text-base leading-relaxed text-gray-600">
+                  Craft custom furniture pieces that seamlessly integrate with
+                  interior design while ensuring comfort and functionality.
+                </p>
+              </div>
+            </a>
+
+            <a
+              href="./pages/services/renovation.html"
+              class="group service-card overflow-hidden rounded-lg border border-gray-200 bg-white text-gray-600 shadow-sm transition-all duration-300 hover:shadow-lg fade-in"
+            >
+              <div class="card-image h-52 w-full overflow-hidden">
+                <img
+                  src="./assets/reno.jpeg"
+                  alt="Renovation"
+                  class="h-full w-full object-cover transition-transform duration-400 group-hover:scale-105"
+                />
+              </div>
+              <div class="card-content p-6">
+                <h3 class="mb-2 text-2xl font-display font-bold text-dark">
+                  Renovation
+                </h3>
+                <p class="text-base leading-relaxed text-gray-600">
+                  Transform existing structures with modern upgrades, improved
+                  functionality, and contemporary aesthetics.
+                </p>
+              </div>
+            </a>
+
+            <a
+              href="./pages/services/smart-home.html"
+              class="group service-card overflow-hidden rounded-lg border border-gray-200 bg-white text-gray-600 shadow-sm transition-all duration-300 hover:shadow-lg fade-in"
+            >
+              <div class="card-image h-52 w-full overflow-hidden">
+                <img
+                  src="https://images.pexels.com/photos/1457842/pexels-photo-1457842.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                  alt="Smart Home Integration"
+                  class="h-full w-full object-cover transition-transform duration-400 group-hover:scale-105"
+                />
+              </div>
+              <div class="card-content p-6">
+                <h3 class="mb-2 text-2xl font-display font-bold text-dark">
+                  Smart Home Integration
+                </h3>
+                <p class="text-base leading-relaxed text-gray-600">
+                  Integrate cutting edge smart home systems for automation,
+                  security, energy management, and convenience.
+                </p>
+              </div>
+            </a>
+
+            <a
+              href="./pages/services/space-planning.html"
+              class="group service-card overflow-hidden rounded-lg border border-gray-200 bg-white text-gray-600 shadow-sm transition-all duration-300 hover:shadow-lg fade-in"
+            >
+              <div class="card-image h-52 w-full overflow-hidden">
+                <img
+                  src="https://images.pexels.com/photos/1722183/pexels-photo-1722183.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                  alt="Space Planning"
+                  class="h-full w-full object-cover transition-transform duration-400 group-hover:scale-105"
+                />
+              </div>
+              <div class="card-content p-6">
+                <h3 class="mb-2 text-2xl font-display font-bold text-dark">
+                  Space Planning
+                </h3>
+                <p class="text-base leading-relaxed text-gray-600">
+                  Optimize spatial layouts to maximize functionality, flow, and
+                  user experience in residential and commercial spaces.
+                </p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="py-32 px-6 relative overflow-hidden">
+        <!-- Background Image -->
+        <div
+          class="absolute inset-0 parallax bg-cover bg-center"
+          style="background-image: url('./assets/landscap.jpg')"
+        ></div>
+
+        <!-- ✅ Black Overlay -->
+        <div class="absolute inset-0 bg-black/60"></div>
+
+        <!-- Content -->
+        <div class="relative z-10 max-w-4xl mx-auto text-center text-white">
+          <h2 class="text-5xl md:text-7xl font-display font-bold mb-6">
+            Ready to work with us?
+          </h2>
+          <p class="text-xl text-gray-200 mb-10 max-w-2xl mx-auto">
+            Leet's discuss your project requirements and create something
+            exceptional together.
+          </p>
+          <a
+            href="./contact.html"
+            class="inline-block bg-accent px-8 py-4 rounded-full font-bold text-white text-lg hover:bg-accent/90 transition transform hover:scale-105"
+          >
+            Start Your Project
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-gray-100 border-t border-gray-200 pt-20 pb-10">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="grid md:grid-cols-4 gap-12 mb-16">
+          <div>
+            <div class="flex items-center gap-3 mb-6">
+              <div
+                class="w-12 h-12 bg-accent/20 rounded-full flex items-center justify-center p-2"
+              >
+                <img src="./assets/logo.png" alt="Saubhagya Architects Logo" />
+              </div>
+              <div>
+                <h2 class="text-lg font-bold text-dark">Saubhagya</h2>
+                <span class="text-xs text-gray-600">Architects</span>
+              </div>
+            </div>
+            <p class="text-gray-600 text-sm mb-6">
+              A boutique studio with net zero mindset and timeless design
+              principles.
+            </p>
+            <div class="flex gap-4">
+              <a
+                href="#"
+                class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-dark hover:bg-accent transition"
+              >
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-dark hover:bg-accent transition"
+              >
+                <i class="fab fa-linkedin"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-dark hover:bg-accent transition"
+              >
+                <i class="fas fa-envelope"></i>
+              </a>
+            </div>
+          </div>
+
+          <div>
+            <h4
+              class="font-bold mb-6 text-accent uppercase tracking-wide text-sm"
+            >
+              Navigation
+            </h4>
+            <ul class="space-y-3">
+              <li>
+                <a
+                  href="index.html"
+                  class="text-gray-600 hover:text-dark transition"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a
+                  href="services.html"
+                  class="text-gray-600 hover:text-dark transition"
+                  >Services</a
+                >
+              </li>
+              <li>
+                <a
+                  href="portfolio.html"
+                  class="text-gray-600 hover:text-dark transition"
+                  >Portfolio</a
+                >
+              </li>
+              <li>
+                <a
+                  href="about.html"
+                  class="text-gray-600 hover:text-dark transition"
+                  >About</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4
+              class="font-bold mb-6 text-accent uppercase tracking-wide text-sm"
+            >
+              Services
+            </h4>
+            <ul class="space-y-3">
+              <li>
+                <a
+                  href="./pages/services/interior-design.html"
+                  class="text-gray-600 hover:text-dark transition"
+                  >Interior Design</a
+                >
+              </li>
+              <li>
+                <a
+                  href="./pages/services/sustainable-design.html"
+                  class="text-gray-600 hover:text-dark transition"
+                  >Sustainable Design</a
+                >
+              </li>
+              <li>
+                <a
+                  href="./pages/services/lighting-design.html"
+                  class="text-gray-600 hover:text-dark transition"
+                  >Lighting Design</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4
+              class="font-bold mb-6 text-accent uppercase tracking-wide text-sm"
+            >
+              Contact
+            </h4>
+            <ul class="space-y-3 text-gray-600">
+              <li>Dehradun, India</li>
+              <li>
+                <a href="tel:+919714851489" class="hover:text-dark transition"
+                  >+91 97148 51489</a
+                >
+              </li>
+              <li>
+                <a href="tel:+916399061515" class="hover:text-dark transition"
+                  >+91 63990 61515</a
+                >
+              </li>
+              <li>
+                <a
+                  href="mailto:saubhagyaarchitects@gmail.com"
+                  class="hover:text-dark transition text-sm"
+                  >saubhagyaarchitects@gmail.com</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div
+          class="pt-8 border-t border-gray-200 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-600"
+        >
+          <p>&copy; 2025 Saubhagya Architects. All rights reserved.</p>
+          <div class="flex gap-6">
+            <a href="#" class="hover:text-dark transition">Privacy</a>
+            <a href="#" class="hover:text-dark transition">Terms</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <a
+      href="https://wa.me/919714851489"
+      class="fixed bottom-8 right-8 z-50 bg-[#25D366] w-16 h-16 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition transform"
+    >
+      <i class="fab fa-whatsapp text-white text-3xl"></i>
+    </a>
+
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@latest/bundled/lenis.min.js"></script>
+
+    <script>
+      // --- Lenis Smooth Scroll ---
+      const lenis = new Lenis();
+      function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
+      requestAnimationFrame(raf);
+
+      // --- Mobile Menu Toggle ---
+      const menuBtn = document.getElementById("menuBtn");
+      const mobileMenu = document.getElementById("mobileMenu");
+      const menuIcon = menuBtn.querySelector("i");
+
+      menuBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+        if (mobileMenu.classList.contains("hidden")) {
+          menuIcon.classList.remove("fa-times");
+          menuIcon.classList.add("fa-bars");
+        } else {
+          menuIcon.classList.remove("fa-bars");
+          menuIcon.classList.add("fa-times");
+        }
+      });
+
+      // --- Hero Slideshow ---
+      const slides = document.querySelectorAll(".hero-slide");
+      let currentSlide = 0;
+      const slideInterval = 3000;
+
+      function nextSlide() {
+        if (slides.length === 0) return;
+        slides[currentSlide].classList.remove("visible");
+        currentSlide = (currentSlide + 1) % slides.length;
+        slides[currentSlide].classList.add("visible");
+      }
+
+      if (slides.length > 0) {
+        slides[0].classList.add("visible");
+        setInterval(nextSlide, slideInterval);
+      }
+
+      // --- Fade-in on Scroll ---
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+
+      const fadeInElements = document.querySelectorAll(".fade-in");
+      fadeInElements.forEach((el) => observer.observe(el));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Saubhagya Architects — Architecture & Interior Design Studio in Dehradun
+    </title>
+
+    <meta
+      name="description"
+      content="Saubhagya Architects is a premier architecture and interior design studio in Dehradun, specializing in timeless residential, commercial, and landscape design."
+    />
+    <meta
+      name="keywords"
+      content="architecture, interior design, dehradun architect, saubhagya architects, modern architecture, residential design, commercial fitouts, landscape design"
+    />
+    <meta name="author" content="Saubhagya Architects" />
+    <link rel="shortcut icon" href="./assets/logo.png" type="image/png" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              accent: "#c5a572", // Classic beige/gold accent
+              dark: "#1f2937", // Dark gray for text
+            },
+            fontFamily: {
+              sans: ["Montserrat", "sans-serif"],
+              display: ["Playfair Display", "serif"],
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .animate-fade-in-up {
+        animation: fadeInUp 1s ease-out forwards;
+      }
+
+      .hero-slide {
+        position: absolute;
+        inset: 0;
+        background-size: cover;
+        background-position: center;
+        opacity: 0;
+        transition: opacity 1.5s ease-in-out;
+      }
+      .hero-slide.visible {
+        opacity: 1;
+      }
+
+      .service-card {
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .service-card:hover {
+        transform: translateY(-8px) scale(1.02);
+      }
+
+      .project-overlay {
+        background: linear-gradient(
+          0deg,
+          rgba(0, 0, 0, 0.463) 0%,
+          rgba(0, 0, 0, 0.505) 100%
+        );
+        opacity: 0;
+        transition: opacity 0.4s ease;
+      }
+
+      .project-card:hover .project-overlay {
+        opacity: 1;
+      }
+
+      .parallax {
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: center;
+      }
+
+      nav a {
+        position: relative;
+      }
+
+      nav a::after {
+        content: "";
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: #bfa181; /* Accent color */
+        transition: width 0.3s ease;
+      }
+
+      nav a:hover::after {
+        width: 100%;
+      }
+      nav a.logo-link::after {
+        display: none;
+        content: none;
+      }
+      nav a.logo-link:hover::after {
+        width: 0;
+      }
+      /* Light mode glass effect for NAV */
+      .glass {
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      /* Dark mode glass effect (for hero) */
+      .glass-dark {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      /* Gradient text for accent */
+      .text-gradient {
+        background: linear-gradient(135deg, #c3a688 0%, #8b7355 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+    </style>
+  </head>
+  <body class="bg-white text-dark overflow-x-hidden">
+    <nav class="fixed top-0 left-0 right-0 z-50 glass border-b border-gray-200">
+      <div
+        class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between"
+      >
+        <div class="flex items-center gap-3">
+          <a href="./index.html" class="flex items-center gap-3 logo-link">
+            <div
+              class="w-12 h-12 sm:h-14  sm:w-14 rounded-full flex items-center justify-center p-2"
+            >
+              <img
+                src="../../assets/logo.png"
+                alt="Saubhagya Architects Logo"
+              />
+            </div>
+            <div>
+              <h2 class="text-lg sm:text-3xl font-bold text-dark">Saubhagya Architects</h2>
+              <span class="text-base text-gray-500">Exceeding Expectations</span>
+            </div>
+          </a>
+        </div>
+
+        <div class="hidden md:flex items-center gap-8">
+          <a
+            href="./index.html"
+            class="text-sm font-medium text-dark hover:text-accent transition"
+            >Home</a
+          >
+          <a
+            href="./about.html"
+            class="text-sm font-medium text-dark hover:text-accent transition"
+            >About</a
+          >
+          <a
+            href="./portfolio.html"
+            class="text-sm font-medium text-dark hover:text-accent transition"
+            >Portfolio</a
+          >
+          <a
+            href="./services.html"
+            class="text-sm font-medium text-dark hover:text-accent transition"
+            >Services</a
+          >
+          <a
+            href="./blog.html"
+            class="text-sm font-medium text-dark hover:text-accent transition"
+            >Blog</a
+          >
+          <a href="./contact.html" class="">Contact</a>
+        </div>
+
+        <button id="menuBtn" class="md:hidden text-2xl text-dark">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+
+      <div
+        id="mobileMenu"
+        class="hidden md:hidden w-full glass border-t border-gray-200"
+      >
+        <a
+          href="./index.html"
+          class="block py-4 px-6 text-sm font-medium text-dark hover:bg-gray-100 transition"
+          >Home</a
+        >
+        <a
+          href="./about.html"
+          class="block py-4 px-6 text-sm font-medium text-dark hover:bg-gray-100 transition"
+          >About</a
+        >
+        <a
+          href="./portfolio.html"
+          class="block py-4 px-6 text-sm font-medium text-dark hover:bg-gray-100 transition"
+          >Portfolio</a
+        >
+        <a
+          href="./services.html"
+          class="block py-4 px-6 text-sm font-medium text-dark hover:bg-gray-100 transition"
+          >Services</a
+        >
+        <a
+          href="./blog.html"
+          class="block py-4 px-6 text-sm font-medium text-dark hover:bg-gray-100 transition"
+          >Blog</a
+        >
+        <a
+          href="./contact.html"
+          class="block py-4 px-6 text-sm font-medium text-dark hover:bg-gray-100 transition"
+          >Contact</a
+        >
+      </div>
+    </nav>
+
+    <section class="relative h-screen flex items-center">
+      <div class="absolute inset-0 z-0">
+        <div
+          class="hero-slide"
+          style="background-image: url('./assets/home-hero.jpg')"
+        ></div>
+        <div
+          class="hero-slide"
+          style="background-image: url('./assets/bg2.jpeg')"
+        ></div>
+        <div
+          class="hero-slide"
+          style="background-image: url('./assets/night2.jpg')"
+        ></div>
+        <div
+          class="hero-slide"
+          style="background-image: url('./assets/bg5.jpeg')"
+        ></div>
+        <div
+          class="hero-slide"
+          style="background-image: url('./assets/night1.jpg')"
+        ></div>
+        <div
+          class="absolute inset-0 bg-gradient-to-br from-black/80 via-black/70 to-transparent"
+        ></div>
+      </div>
+
+      <div class="relative z-10 max-w-7xl mx-auto px-6 w-full">
+        <div class="max-w-3xl animate-fade-in-up">
+          <div class="inline-block glass-dark px-4 py-2 rounded-full mt-20">
+            <span class="text-xs font-semibold tracking-widest text-accent"
+              >ARCHITECTURE · INTERIORS · URBAN</span
+            >
+          </div>
+          <h1
+            class="text-6xl md:text-8xl font-display font-black mb-6 leading-none text-white"
+          >
+            Designing<br />
+            <span class="text-gradient">Tomorrow's</span><br />
+            Landmarks
+          </h1>
+          <p class="text-xl text-gray-300 mb-8 max-w-2xl leading-relaxed">
+            Where visionary architecture meets timeless elegance. We craft
+            exceptional spaces that inspire, endure, and elevate the human
+            experience.
+          </p>
+          <div class="flex flex-wrap gap-4">
+            <a
+              href="./contact.html"
+              class="bg-accent px-8 py-4 rounded-full font-semibold text-dark hover:bg-accent/90 transition transform hover:scale-105"
+            >
+              Start Your Project
+            </a>
+            <a
+              href="./portfolio.html"
+              class="glass-dark px-8 py-4 rounded-full font-semibold text-white hover:bg-white/20 transition flex items-center gap-2"
+            >
+              View Portfolio <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce"
+      >
+        <i class="fas fa-chevron-down text-2xl text-accent"></i>
+      </div>
+    </section>
+
+    <section class="py-24 px-6 bg-white">
+      <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+        <!-- Left: Image -->
+        <div class="overflow-hidden rounded-2xl shadow-lg">
+          <img
+            src="./assets/bg5.jpeg"
+            alt="Architectural Design"
+            class="w-full h-[450px] object-cover hover:scale-105 transition-transform duration-500"
+          />
+        </div>
+
+        <!-- Right: Text -->
+        <div class="text-center md:text-left">
+          <h2
+            class="text-4xl md:text-5xl font-display font-bold text-dark mb-6"
+          >
+            Timeless Design.<br />Visionary Spaces.
+          </h2>
+          <p class="text-lg text-gray-600 leading-relaxed mb-8">
+            Exceeding expectations isn't just a tagline — it's our core design
+            principle. Every project blends creativity, precision, and purpose
+            to create spaces that inspire and endure.
+          </p>
+          <a
+            href="./portfolio.html"
+            class="inline-block bg-accent text-white px-8 py-3 rounded-full font-medium hover:bg-accent/900 transition"
+          >
+            Explore Our Work
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="px-6">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-20">
+          <span
+            class="text-accent text-sm font-semibold tracking-widest uppercase"
+            >What We Do</span
+          >
+          <h2
+            class="text-5xl md:text-6xl font-display font-bold mt-4 mb-6 text-dark"
+          >
+            Our Services
+          </h2>
+          <p class="text-gray-600 text-lg max-w-2xl mx-auto">
+            Comprehensive architectural solutions tailored to your vision
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <a
+            href="./pages/services/interior-design.html"
+            class="service-card group cursor-pointer"
+          >
+            <div class="relative overflow-hidden rounded-2xl h-80 mb-6">
+              <img
+                src="./assets/interior.jpg"
+                alt="Interior Design"
+                class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-transparent opacity-60"
+              ></div>
+              <div class="absolute bottom-6 left-6">
+                <div
+                  class="w-12 h-12 bg-accent rounded-full flex items-center justify-center mb-4"
+                >
+                  <i class="fas fa-home text-dark text-xl"></i>
+                </div>
+              </div>
+            </div>
+            <h3
+              class="text-2xl font-bold mb-3 text-dark group-hover:text-accent transition"
+            >
+              Interior Design
+            </h3>
+            <p class="text-gray-600 leading-relaxed">
+              Curated spaces that blend functionality with aesthetic excellence,
+              featuring custom furniture and ambient lighting.
+            </p>
+          </a>
+
+          <a
+            href="./pages/services/residential-architecture.html"
+            class="service-card group cursor-pointer"
+          >
+            <div class="relative overflow-hidden rounded-2xl h-80 mb-6">
+              <img
+                src="./assets/residential.jpg"
+                alt="Residential Architecture"
+                class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-transparent opacity-60"
+              ></div>
+              <div class="absolute bottom-6 left-6">
+                <div
+                  class="w-12 h-12 bg-accent rounded-full flex items-center justify-center mb-4"
+                >
+                  <i class="fas fa-building text-dark text-xl"></i>
+                </div>
+              </div>
+            </div>
+            <h3
+              class="text-2xl font-bold mb-3 text-dark group-hover:text-accent transition"
+            >
+              Residential Architecture
+            </h3>
+            <p class="text-gray-600 leading-relaxed">
+              Bespoke villas and apartments that harmonize natural light,
+              privacy, and breathtaking views.
+            </p>
+          </a>
+
+          <a
+            href="./pages/services/commercial-fitouts.html"
+            class="service-card group cursor-pointer"
+          >
+            <div class="relative overflow-hidden rounded-2xl h-80 mb-6">
+              <img
+                src="./assets/commercial.jpg"
+                alt="Commercial Design"
+                class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-transparent opacity-60"
+              ></div>
+              <div class="absolute bottom-6 left-6">
+                <div
+                  class="w-12 h-12 bg-accent rounded-full flex items-center justify-center mb-4"
+                >
+                  <i class="fas fa-briefcase text-dark text-xl"></i>
+                </div>
+              </div>
+            </div>
+            <h3
+              class="text-2xl font-bold mb-3 text-dark group-hover:text-accent transition"
+            >
+              Commercial Architecture
+            </h3>
+            <p class="text-gray-600 leading-relaxed">
+              Strategic office and retail environments that embody your brand
+              while maximizing functionality.
+            </p>
+          </a>
+
+          <a
+            href="./pages/services/landscape-design.html"
+            class="service-card group cursor-pointer"
+          >
+            <div class="relative overflow-hidden rounded-2xl h-80 mb-6">
+              <img
+                src="./assets/landscap.jpg"
+                alt="Landscape Design"
+                class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-transparent opacity-60"
+              ></div>
+              <div class="absolute bottom-6 left-6">
+                <div
+                  class="w-12 h-12 bg-accent rounded-full flex items-center justify-center mb-4"
+                >
+                  <i class="fas fa-leaf text-dark text-xl"></i>
+                </div>
+              </div>
+            </div>
+            <h3
+              class="text-2xl font-bold mb-3 text-dark group-hover:text-accent transition"
+            >
+              Landscape Design
+            </h3>
+            <p class="text-gray-600 leading-relaxed">
+              Organic outdoor spaces featuring courtyards and green roofs that
+              seamlessly connect with nature.
+            </p>
+          </a>
+
+          <a
+            href="./pages/services/sustainable-design.html"
+            class="service-card group cursor-pointer"
+          >
+            <div class="relative overflow-hidden rounded-2xl h-80 mb-6">
+              <img
+                src="./assets/sustaniable.jpg"
+                alt="Sustainable Design"
+                class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-transparent opacity-60"
+              ></div>
+              <div class="absolute bottom-6 left-6">
+                <div
+                  class="w-12 h-12 bg-accent rounded-full flex items-center justify-center mb-4"
+                >
+                  <i class="fas fa-recycle text-dark text-xl"></i>
+                </div>
+              </div>
+            </div>
+            <h3
+              class="text-2xl font-bold mb-3 text-dark group-hover:text-accent transition"
+            >
+              Sustainable Design
+            </h3>
+            <p class="text-gray-600 leading-relaxed">
+              Eco-conscious solutions leveraging passive strategies for optimal
+              comfort and minimal environmental impact.
+            </p>
+          </a>
+
+          <a
+            href="./pages/services/project-management.html"
+            class="service-card group cursor-pointer"
+          >
+            <div class="relative overflow-hidden rounded-2xl h-80 mb-6">
+              <img
+                src="./assets/project.jpg"
+                alt="Project Management"
+                class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-transparent opacity-60"
+              ></div>
+              <div class="absolute bottom-6 left-6">
+                <div
+                  class="w-12 h-12 bg-accent rounded-full flex items-center justify-center mb-4"
+                >
+                  <i class="fas fa-tasks text-dark text-xl"></i>
+                </div>
+              </div>
+            </div>
+            <h3
+              class="text-2xl font-bold mb-3 text-dark group-hover:text-accent transition"
+            >
+              Project Management
+            </h3>
+            <p class="text-gray-600 leading-relaxed">
+              End-to-end coordination of budgets, vendors, and timelines with
+              unwavering accountability.
+            </p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="px-6 py-12 bg-gradient-to-b from-white to-accent/5">
+      <div class="max-w-7xl mx-auto">
+        <div class="flex items-end justify-between mb-16">
+          <div>
+            <span
+              class="text-accent text-sm font-semibold tracking-widest uppercase"
+              >Portfolio</span
+            >
+            <h2
+              class="text-5xl md:text-6xl font-display font-bold mt-4 text-dark"
+            >
+              Featured Projects
+            </h2>
+          </div>
+          <a
+            href="./portfolio.html"
+            class="hidden md:flex items-center gap-2 text-accent font-semibold hover:gap-4 transition-all"
+          >
+            View All <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          <a
+            href="./pages/portfolio/doon-boulevard.html"
+            class="project-card group cursor-pointer"
+          >
+            <div class="relative overflow-hidden rounded-2xl h-96 mb-6">
+              <img
+                src="./assets/doon.jpeg"
+                alt="Doon Boulevard"
+                class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700"
+              />
+              <div class="project-overlay absolute inset-0 flex items-end p-8">
+                <div>
+                  <h3 class="text-2xl font-bold mb-2 text-white">
+                    Doon Boulevard
+                  </h3>
+                  <p class="text-sm text-gray-300">Mixed-Use Development</p>
+                </div>
+              </div>
+            </div>
+            <h3 class="text-2xl font-bold mb-3 text-dark">Doon Boulevard</h3>
+            <p class="text-gray-600">
+              A landmark destination combining retail, dining, and urban
+              residences in the city's heart.
+            </p>
+          </a>
+
+          <a
+            href="./pages/portfolio/apex-tower.html"
+            class="project-card group cursor-pointer"
+          >
+            <div class="relative overflow-hidden rounded-2xl h-96 mb-6">
+              <img
+                src="./assets/apex.jpg"
+                alt="Apex Tower"
+                class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700"
+              />
+              <div class="project-overlay absolute inset-0 flex items-end p-8">
+                <div>
+                  <h3 class="text-2xl font-bold mb-2 text-white">Apex Tower</h3>
+                  <p class="text-sm text-gray-300">Corporate Headquarters</p>
+                </div>
+              </div>
+            </div>
+            <h3 class="text-2xl font-bold mb-3 text-dark">Apex Tower</h3>
+            <p class="text-gray-600">
+              A Grade-A tower with sustainable design redefining modern
+              workspace for global leaders.
+            </p>
+          </a>
+
+          <a
+            href="./pages/portfolio/foothill-avenue.html"
+            class="project-card group cursor-pointer"
+          >
+            <div class="relative overflow-hidden rounded-2xl h-96 mb-6">
+              <img
+                src="./assets/foothill.jpeg"
+                alt="Foothill Avenue"
+                class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700"
+              />
+              <div class="project-overlay absolute inset-0 flex items-end p-8">
+                <div>
+                  <h3 class="text-2xl font-bold mb-2 text-white">
+                    Foothill Avenue
+                  </h3>
+                  <p class="text-sm text-gray-300">Luxury Villas</p>
+                </div>
+              </div>
+            </div>
+            <h3 class="text-2xl font-bold mb-3 text-dark">Foothill Avenue</h3>
+            <p class="text-gray-600">
+              Exclusive villas nestled in tranquil foothills, merging luxury
+              with natural landscape.
+            </p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section
+      id="stats-section"
+      class="py-20 bg-gradient-to-r from-accent/10 to-accent/5"
+    >
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div class="text-center">
+            <div
+              class="text-5xl font-bold text-accent mb-2 js-count-target"
+              data-target="250"
+              data-postfix="+"
+            >
+              0
+            </div>
+            <div class="text-sm text-gray-600 uppercase tracking-wide">
+              Projects Completed
+            </div>
+          </div>
+          <div class="text-center">
+            <div
+              class="text-5xl font-bold text-accent mb-2 js-count-target"
+              data-target="15"
+              data-postfix="+"
+            >
+              0
+            </div>
+            <div class="text-sm text-gray-600 uppercase tracking-wide">
+              Years Experience
+            </div>
+          </div>
+          <div class="text-center">
+            <div
+              class="text-5xl font-bold text-accent mb-2 js-count-target"
+              data-target="98"
+              data-postfix="%"
+            >
+              0
+            </div>
+            <div class="text-sm text-gray-600 uppercase tracking-wide">
+              Client Satisfaction
+            </div>
+          </div>
+          <div class="text-center">
+            <div
+              class="text-5xl font-bold text-accent mb-2 js-count-target"
+              data-target="50"
+              data-postfix="+"
+            >
+              0
+            </div>
+            <div class="text-sm text-gray-600 uppercase tracking-wide">
+              Awards Won
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-32 px-6 relative overflow-hidden">
+      <!-- Background Image -->
+      <div
+        class="absolute inset-0 parallax bg-cover bg-center"
+        style="background-image: url('./assets/bg8.jpeg')"
+      ></div>
+
+      <!-- ✅ Black Overlay -->
+      <div class="absolute inset-0 bg-black/60"></div>
+
+      <!-- Content -->
+      <div class="relative z-10 max-w-4xl mx-auto text-center text-white">
+        <h2 class="text-5xl md:text-7xl font-display font-bold mb-6">
+          Ready to Create<br />Something
+          <span class="text-accent">Extraordinary?</span>
+        </h2>
+        <p class="text-xl text-gray-200 mb-10 max-w-2xl mx-auto">
+          Let's collaborate to design spaces that transcend expectations and
+          stand the test of time.
+        </p>
+        <a
+          href="./contact.html"
+          class="inline-block bg-accent px-8 py-4 rounded-full font-bold text-white text-lg hover:bg-accent/90 transition transform hover:scale-105"
+        >
+          Start Your Journey
+        </a>
+      </div>
+    </section>
+
+    <footer class="bg-gray-100 border-t border-gray-200 pt-20 pb-10">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="grid md:grid-cols-4 gap-12 mb-16">
+          <div>
+            <div class="flex items-center gap-3 mb-6">
+              <div
+                class="w-12 h-12 rounded-full flex items-center justify-center p-2"
+              >
+                <img src="./assets/logo.png" alt="Saubhagya Architects Logo" />
+              </div>
+              <div>
+                <h2 class="text-lg font-bold text-dark">Saubhagya</h2>
+                <span class="text-xs text-gray-600">Architects</span>
+              </div>
+            </div>
+            <p class="text-gray-600 text-sm mb-6">
+              A boutique studio with net zero mindset and timeless design
+              principles.
+            </p>
+            <div class="flex gap-4">
+              <a
+                href="#"
+                class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-dark hover:bg-accent transition"
+              >
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-dark hover:bg-accent transition"
+              >
+                <i class="fab fa-linkedin"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-dark hover:bg-accent transition"
+              >
+                <i class="fas fa-envelope"></i>
+              </a>
+            </div>
+          </div>
+
+          <div>
+            <h4
+              class="font-bold mb-6 text-accent uppercase tracking-wide text-sm"
+            >
+              Navigation
+            </h4>
+            <ul class="space-y-3">
+              <li>
+                <a
+                  href="./index.html"
+                  class="text-gray-600 hover:text-dark transition"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a
+                  href="./services.html"
+                  class="text-gray-600 hover:text-dark transition"
+                  >Services</a
+                >
+              </li>
+              <li>
+                <a
+                  href="./portfolio.html"
+                  class="text-gray-600 hover:text-dark transition"
+                  >Portfolio</a
+                >
+              </li>
+              <li>
+                <a
+                  href="./about.html"
+                  class="text-gray-600 hover:text-dark transition"
+                  >About</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4
+              class="font-bold mb-6 text-accent uppercase tracking-wide text-sm"
+            >
+              Services
+            </h4>
+            <ul class="space-y-3">
+              <li>
+                <a
+                  href="./pages/services/interior-design.html"
+                  class="text-gray-600 hover:text-dark transition"
+                  >Interior Design</a
+                >
+              </li>
+              <li>
+                <a
+                  href="./pages/services/sustainable-design.html"
+                  class="text-gray-600 hover:text-dark transition"
+                  >Sustainable Design</a
+                >
+              </li>
+              <li>
+                <a
+                  href="./pages/services/lighting-design.html"
+                  class="text-gray-600 hover:text-dark transition"
+                  >Lighting Design</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4
+              class="font-bold mb-6 text-accent uppercase tracking-wide text-sm"
+            >
+              Contact
+            </h4>
+            <ul class="space-y-3 text-gray-600">
+              <li>Dehradun, India</li>
+              <li>
+                <a href="tel:+919714851489" class="hover:text-dark transition"
+                  >+91 97148 51489</a
+                >
+              </li>
+              <li>
+                <a href="tel:+916399061515" class="hover:text-dark transition"
+                  >+91 63990 61515</a
+                >
+              </li>
+              <li>
+                <a
+                  href="mailto:saubhagyaarchitects@gmail.com"
+                  class="hover:text-dark transition text-sm"
+                  >saubhagyaarchitects@gmail.com</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div
+          class="pt-8 border-t border-gray-200 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-600"
+        >
+          <p>&copy; 2025 Saubhagya Architects. All rights reserved.</p>
+          <div class="flex gap-6">
+            <a href="#" class="hover:text-dark transition">Privacy</a>
+            <a href="#" class="hover:text-dark transition">Terms</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <a
+      href="https://wa.me/919714851489"
+      class="fixed bottom-8 right-8 z-50 bg-[#25D366] w-16 h-16 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition transform"
+    >
+      <i class="fab fa-whatsapp text-white text-3xl"></i>
+    </a>
+
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@latest/bundled/lenis.min.js"></script>
+
+    <script>
+      const lenis = new Lenis();
+      function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
+      requestAnimationFrame(raf);
+
+      // --- Mobile Menu Toggle ---
+      const menuBtn = document.getElementById("menuBtn");
+      const mobileMenu = document.getElementById("mobileMenu");
+      const menuIcon = menuBtn.querySelector("i"); // Get the icon
+
+      menuBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+
+        // Toggle icon
+        if (mobileMenu.classList.contains("hidden")) {
+          menuIcon.classList.remove("fa-times");
+          menuIcon.classList.add("fa-bars");
+        } else {
+          menuIcon.classList.remove("fa-bars");
+          menuIcon.classList.add("fa-times");
+        }
+      });
+
+      // --- Hero Slideshow ---
+      const slides = document.querySelectorAll(".hero-slide");
+      let currentSlide = 0;
+      const slideInterval = 3000; // 5 seconds
+
+      function nextSlide() {
+        if (slides.length === 0) return;
+
+        // Remove 'visible' from current slide
+        slides[currentSlide].classList.remove("visible");
+
+        // Update index
+        currentSlide = (currentSlide + 1) % slides.length;
+
+        // Add 'visible' to next slide
+        slides[currentSlide].classList.add("visible");
+      }
+
+      // Start the slideshow
+      if (slides.length > 0) {
+        slides[0].classList.add("visible"); // Show the first slide immediately
+        setInterval(nextSlide, slideInterval);
+      }
+      // Flag to ensure the animation only runs once
+      let animationStarted = false;
+
+      // Counter function logic
+      const countUp = (el, target, duration, postfix) => {
+        let start = 0;
+        let increment = target / (duration / 16); // ~60 frames per second
+
+        const updateCount = () => {
+          start += increment;
+
+          if (start < target) {
+            el.textContent = Math.ceil(start) + postfix;
+            requestAnimationFrame(updateCount);
+          } else {
+            el.textContent = target + postfix;
+          }
+        };
+        updateCount();
+      };
+
+      // Intersection Observer setup
+      const observer = new IntersectionObserver(
+        (entries, observer) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting && !animationStarted) {
+              // If the section is visible and the animation hasn't started, run it
+              document
+                .querySelectorAll(".js-count-target")
+                .forEach((counter) => {
+                  const target = parseInt(counter.getAttribute("data-target"));
+                  const postfix = counter.getAttribute("data-postfix") || "";
+                  countUp(counter, target, 2000, postfix); // 2000ms = 2 seconds duration
+                });
+
+              animationStarted = true;
+              // Stop observing once the animation has run
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          threshold: 0.5, // Trigger when 50% of the element is visible
+        }
+      );
+
+      // Start observing the section
+      const statsSection = document.getElementById("stats-section");
+      if (statsSection) {
+        observer.observe(statsSection);
+      }
+    </script>
+  </body>
+</html>

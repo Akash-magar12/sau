@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Foothill Avenue — Exclusive Residential Community | Saubhagya Architects
+    </title>
+    <meta
+      name="description"
+      content="Foothill Avenue is an exclusive community of private luxury villas designed by Saubhagya Architects, integrating modern living with the tranquil Himalayan foothills."
+    />
+    <meta
+      name="keywords"
+      content="Foothill Avenue, luxury villas, residential community, custom homes, modern architecture, hillside residences, Dehradun architects, exclusive living"
+    />
+    <meta name="author" content="Saubhagya Architects" />
+    <link rel="shortcut icon" href="../../assets/logo.png" type="image/png" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&family=Playfair+Display:wght@700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              accent: "#bfa181", // Classic beige/gold accent
+              dark: "#1f2937", // Dark gray for text
+            },
+            fontFamily: {
+              sans: ["Montserrat", "sans-serif"],
+              display: ["Playfair Display", "serif"],
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .fade-in {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.8s cubic-bezier(0.165, 0.84, 0.44, 1),
+          transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+      }
+      .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      nav a {
+        position: relative;
+        transition: color 0.3s ease;
+      }
+      nav a::after {
+        content: "";
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: #bfa181;
+        transition: width 0.3s ease;
+      }
+      nav a:hover::after {
+        width: 100%;
+      }
+      /* Disable underline effect on logo link */
+      .logo-link:hover::after {
+        width: 0 !important;
+      }
+      .glass {
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+      .text-gradient {
+        background: linear-gradient(135deg, #c3a688 0%, #8b7355 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+    </style>
+  </head>
+
+  <body class="bg-white text-dark overflow-x-hidden pt-20">
+    <nav class="fixed top-0 left-0 right-0 z-50 glass border-b border-gray-200">
+      <div
+        class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between"
+      >
+        <div class="flex items-center gap-3">
+          <a href="../../index.html" class="flex items-center gap-3 logo-link">
+            <div
+              class="w-12 h-12 sm:h-14  sm:w-14 rounded-full flex items-center justify-center p-2"
+            >
+              <img
+                src="../../assets/logo.png"
+                alt="Saubhagya Architects Logo"
+              />
+            </div>
+            <div>
+              <h2 class="text-lg sm:text-3xl font-bold text-dark">Saubhagya Architects</h2>
+              <span class="text-xs text-gray-500">Exceeding Expectations</span>
+            </div>
+          </a>
+        </div>
+
+        <div class="hidden md:flex items-center gap-8">
+          <a
+            href="../../index.html"
+            class="text-sm font-medium text-dark hover:text-accent transition"
+            >Home</a
+          >
+          <a
+            href="../../about.html"
+            class="text-sm font-medium text-dark hover:text-accent transition"
+            >About</a
+          >
+          <a
+            href="../../portfolio.html"
+            class="text-sm font-medium text-dark hover:text-accent transition"
+            >Portfolio</a
+          >
+          <a
+            href="../../services.html"
+            class="text-sm font-medium text-dark hover:text-accent transition"
+            >Services</a
+          >
+          <a
+            href="../../blog.html"
+            class="text-sm font-medium text-dark hover:text-accent transition"
+            >Blog</a
+          >
+          <a
+            href="../../contact.html"
+            class="text-sm font-medium text-dark hover:text-accent transition"
+            >Contact</a
+          >
+        </div>
+
+        <button id="menuBtn" class="md:hidden text-2xl text-dark">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+
+      <div
+        id="mobileMenu"
+        class="hidden md:hidden w-full glass border-t border-gray-200"
+      >
+        <a
+          href="../../index.html"
+          class="block py-4 px-6 text-sm font-medium text-dark hover:bg-gray-100 transition"
+          >Home</a
+        >
+        <a
+          href="../../about.html"
+          class="block py-4 px-6 text-sm font-medium text-dark hover:bg-gray-100 transition"
+          >About</a
+        >
+        <a
+          href="../../portfolio.html"
+          class="block py-4 px-6 text-sm font-medium text-dark hover:bg-gray-100 transition"
+          >Portfolio</a
+        >
+        <a
+          href="../../services.html"
+          class="block py-4 px-6 text-sm font-medium text-dark hover:bg-gray-100 transition"
+          >Services</a
+        >
+        <a
+          href="../../blog.html"
+          class="block py-4 px-6 text-sm font-medium text-dark hover:bg-gray-100 transition"
+          >Blog</a
+        >
+        <a
+          href="../../contact.html"
+          class="block py-4 px-6 text-sm font-medium text-dark hover:bg-gray-100 transition"
+          >Contact</a
+        >
+      </div>
+    </nav>
+
+    <main class="min-h-screen bg-white">
+      <section class="py-16 md:py-24 px-6 max-w-7xl mx-auto">
+        <div class="fade-in text-center md:text-left">
+          <span
+            class="inline-block text-xs font-semibold tracking-widest uppercase text-accent border border-accent px-3 py-1 rounded-full mb-4"
+            >Residential Community</span
+          >
+          <h1
+            class="text-5xl md:text-6xl font-display font-black mb-6 leading-tight text-gradient"
+          >
+            Foothill Avenue
+          </h1>
+          <p
+            class="text-xl text-gray-600 mb-12 max-w-3xl leading-relaxed mx-auto md:mx-0"
+          >
+            An exclusive residential development comprising ten custom-designed
+            villas, masterfully positioned to maximize privacy and views of the
+            surrounding tranquil foothills.
+          </p>
+        </div>
+
+        <div class="mb-16 fade-in">
+          <img
+            src="../../assets/foothill.jpeg"
+            alt="Foothill Avenue - View of the luxury residential community"
+            class="w-full h-auto max-h-[700px] object-cover rounded-xl shadow-2xl"
+          />
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8 mb-16">
+          <div
+            class="fade-in bg-white p-6 rounded-xl shadow-md border border-gray-100 hover:shadow-lg transition-shadow duration-300"
+          >
+            <h3 class="font-display font-bold text-2xl mb-2 text-dark">
+              Master Planning
+            </h3>
+            <p class="text-gray-700">
+              The site plan carefully considers topography and sun paths,
+              ensuring each villa benefits from natural light and unobstructed
+              views while minimizing mutual sightlines.
+            </p>
+          </div>
+
+          <div
+            class="fade-in bg-white p-6 rounded-xl shadow-md border border-gray-100 hover:shadow-lg transition-shadow duration-300"
+          >
+            <h3 class="font-display font-bold text-2xl mb-2 text-dark">
+              Villa Design
+            </h3>
+            <p class="text-gray-700">
+              Each villa blends traditional materials (slate, stone) with modern
+              minimalist forms, featuring expansive outdoor decks and internal
+              courtyards.
+            </p>
+          </div>
+
+          <div
+            class="fade-in bg-white p-6 rounded-xl shadow-md border border-gray-100 hover:shadow-lg transition-shadow duration-300"
+          >
+            <h3 class="font-display font-bold text-2xl mb-2 text-dark">
+              Community Amenities
+            </h3>
+            <ul class="list-disc list-inside text-gray-700 space-y-2 pl-4">
+              <li class="pl-1">Central landscaped gathering space</li>
+              <li class="pl-1">24/7 guarded security and gated entry</li>
+              <li class="pl-1">
+                Dedicated maintenance and landscaping services
+              </li>
+              <li class="pl-1">Integrated storm water management system</li>
+            </ul>
+          </div>
+        </div>
+
+        <p
+          class="fade-in text-xl leading-relaxed mb-16 border-l-4 border-accent pl-6 text-dark max-w-7xl mx-auto"
+        >
+          Foothill Avenue is the pinnacle of serene, luxurious living. Our
+          integrated design approach managed the entire process, from
+          environmental assessment and master planning to the detailed interior
+          execution of each unique home. The result is a harmonious community
+          defined by quality and tranquility, maximizing the dramatic natural
+          setting.
+        </p>
+
+        <hr class="border-gray-200 mb-16" />
+        <h2
+          class="text-3xl md:text-4xl font-display font-bold text-dark text-center mb-12 fade-in"
+        >
+          Project Gallery
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-16">
+          <div class="fade-in">
+            <img
+              src="../../assets/foothill-entrance.jpg"
+              alt="Foothill Avenue - Entrance"
+              class="w-full h-96 object-cover rounded-xl shadow-xl transition-transform duration-300 hover:scale-[1.02]"
+            />
+          </div>
+          <div class="fade-in">
+            <img
+              src="../../assets/foothill-living.jpg"
+              alt="Foothill Avenue - Interior living room"
+              class="w-full h-96 object-cover rounded-xl shadow-xl transition-transform duration-300 hover:scale-[1.02]"
+            />
+          </div>
+          <div class="fade-in">
+            <img
+              src="../../assets/foothill-kitchen.jpg"
+              alt="Foothill Avenue - Kitchen"
+              class="w-full h-96 object-cover rounded-xl shadow-xl transition-transform duration-300 hover:scale-[1.02]"
+            />
+          </div>
+          <div class="fade-in">
+            <img
+              src="../../assets/foothill-bedroom.jpg"
+              alt="Foothill Avenue - Master bedroom view"
+              class="w-full h-96 object-cover rounded-xl shadow-xl transition-transform duration-300 hover:scale-[1.02]"
+            />
+          </div>
+        </div>
+
+        <hr class="border-gray-200 mb-12" />
+
+        <div class="text-center fade-in">
+          <h2 class="text-3xl font-display font-bold text-dark mb-6">
+            Ready to Build Your Own Exclusive Sanctuary?
+          </h2>
+          <a
+            href="../../contact.html"
+            class="inline-block bg-accent px-10 py-5 rounded-full font-bold text-white text-lg hover:bg-accent/90 transition transform hover:scale-105 shadow-xl"
+          >
+            Schedule a Consultation
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-gray-100 border-t border-gray-200 pt-20 pb-10">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="grid md:grid-cols-4 gap-12 mb-16">
+          <div>
+            <div class="flex items-center gap-3 mb-6">
+              <div
+                class="w-12 h-12 rounded-full flex items-center justify-center p-2"
+              >
+                <img
+                  src="../../assets/logo.png"
+                  alt="Saubhagya Architects Logo"
+                />
+              </div>
+              <div>
+                <h2 class="text-lg font-bold text-dark">Saubhagya</h2>
+                <span class="text-xs text-gray-600">Architects</span>
+              </div>
+            </div>
+            <p class="text-gray-600 text-sm mb-6">
+              A boutique studio with net zero mindset and timeless design
+              principles.
+            </p>
+            <div class="flex gap-4">
+              <a
+                href="#"
+                class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-dark hover:bg-accent transition"
+              >
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-dark hover:bg-accent transition"
+              >
+                <i class="fab fa-linkedin"></i>
+              </a>
+              <a
+                href="mailto:hello@saubhagya.com"
+                class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-dark hover:bg-accent transition"
+              >
+                <i class="fas fa-envelope"></i>
+              </a>
+            </div>
+          </div>
+
+          <div>
+            <h4
+              class="font-bold mb-6 text-accent uppercase tracking-wide text-sm"
+            >
+              Navigation
+            </h4>
+            <ul class="space-y-3">
+              <li>
+                <a
+                  href="../../index.html"
+                  class="text-gray-600 hover:text-dark transition"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a
+                  href="../../services.html"
+                  class="text-gray-600 hover:text-dark transition"
+                  >Services</a
+                >
+              </li>
+              <li>
+                <a
+                  href="../../portfolio.html"
+                  class="text-gray-600 hover:text-dark transition"
+                  >Portfolio</a
+                >
+              </li>
+              <li>
+                <a
+                  href="../../about.html"
+                  class="text-gray-600 hover:text-dark transition"
+                  >About</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4
+              class="font-bold mb-6 text-accent uppercase tracking-wide text-sm"
+            >
+              Services
+            </h4>
+            <ul class="space-y-3">
+              <li>
+                <a
+                  href="../../pages/services/interior-design.html"
+                  class="text-gray-600 hover:text-dark transition"
+                  >Interior Design</a
+                >
+              </li>
+              <li>
+                <a
+                  href="../../pages/services/sustainable-design.html"
+                  class="text-gray-600 hover:text-dark transition"
+                  >Sustainable Design</a
+                >
+              </li>
+              <li>
+                <a
+                  href="../../pages/services/lighting-design.html"
+                  class="text-gray-600 hover:text-dark transition"
+                  >Lighting Design</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4
+              class="font-bold mb-6 text-accent uppercase tracking-wide text-sm"
+            >
+              Contact
+            </h4>
+            <ul class="space-y-3 text-gray-600">
+              <li>Dehradun, India</li>
+              <li>
+                <a href="tel:+919876543210" class="hover:text-dark transition"
+                  >+91 98765 43210</a
+                >
+              </li>
+              <li>
+                <a
+                  href="mailto:hello@saubhagya.com"
+                  class="hover:text-dark transition text-sm"
+                  >hello@saubhagya.com</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div
+          class="pt-8 border-t border-gray-200 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-600"
+        >
+          <p>&copy; 2025 Saubhagya Architects. All rights reserved.</p>
+          <div class="flex gap-6">
+            <a href="#" class="hover:text-dark transition">Privacy</a>
+            <a href="#" class="hover:text-dark transition">Terms</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <a
+      href="https://wa.me/919876543210"
+      class="fixed bottom-8 right-8 z-50 bg-[#25D366] w-16 h-16 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition transform"
+      aria-label="Chat on WhatsApp"
+    >
+      <i class="fab fa-whatsapp text-white text-3xl"></i>
+    </a>
+
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@latest/bundled/lenis.min.js"></script>
+
+    <script>
+      // --- Lenis Smooth Scroll ---
+      const lenis = new Lenis();
+      function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
+      requestAnimationFrame(raf);
+
+      // --- Mobile Menu Toggle ---
+      const menuBtn = document.getElementById("menuBtn");
+      const mobileMenu = document.getElementById("mobileMenu");
+      const menuIcon = menuBtn.querySelector("i");
+
+      menuBtn.addEventListener("click", () => {
+        const isHidden = mobileMenu.classList.toggle("hidden");
+        if (isHidden) {
+          menuIcon.classList.remove("fa-times");
+          menuIcon.classList.add("fa-bars");
+        } else {
+          menuIcon.classList.remove("fa-bars");
+          menuIcon.classList.add("fa-times");
+        }
+      });
+
+      // --- Fade-in on Scroll ---
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+
+      const fadeInElements = document.querySelectorAll(".fade-in");
+      fadeInElements.forEach((el) => observer.observe(el));
+    </script>
+  </body>
+</html>

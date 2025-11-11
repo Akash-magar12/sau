@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>About Us | Saubhagya Architects — Dehradun Design Studio</title>
+    <meta
+      name="description"
+      content="Learn about Saubhagya Architects, our philosophy, and the multidisciplinary team of architects and designers in Dehradun dedicated to excellence and sustainable design."
+    />
+    <meta name="author" content="Saubhagya Architects" />
+    <link rel="shortcut icon" href="./assets/logo.png" type="image/png" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              accent: "#bfa181", // Classic beige/gold accent
+              dark: "#1f2937", // Dark gray for text
+            },
+            fontFamily: {
+              sans: ["Montserrat", "sans-serif"],
+              display: ["Playfair Display", "serif"],
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .animate-fade-in-up {
+        animation: fadeInUp 1s ease-out forwards;
+      }
+
+      .hero-slide {
+        position: absolute;
+        inset: 0;
+        background-size: cover;
+        background-position: center;
+        opacity: 0;
+        transition: opacity 1.5s ease-in-out;
+      }
+      .hero-slide.visible {
+        opacity: 1;
+      }
+
+      /* Fade-in on scroll (from your about.html) */
+      .fade-in {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.8s cubic-bezier(0.165, 0.84, 0.44, 1),
+          transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+      }
+      .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .service-card:hover {
+        transform: translateY(-8px) scale(1.02);
+      }
+      .project-overlay {
+        background: linear-gradient(
+          0deg,
+          rgba(0, 0, 0, 0.463) 0%,
+          rgba(0, 0, 0, 0.505) 100%
+        );
+        opacity: 0;
+        transition: opacity 0.4s ease;
+      }
+      .project-card:hover .project-overlay {
+        opacity: 1;
+      }
+      .parallax {
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: center;
+      }
+
+      /* Nav link styles from master template */
+      nav a {
+        position: relative;
+      }
+      nav a::after {
+        content: "";
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: #bfa181;
+        transition: width 0.3s ease;
+      }
+      nav a:hover::after {
+        width: 100%;
+      }
+      nav a.logo-link::after {
+        display: none;
+        content: none;
+      }
+      nav a.logo-link:hover::after {
+        width: 0;
+      }
+      .glass {
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+      .glass-dark {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+      .text-gradient {
+        background: linear-gradient(135deg, #bfa181 0%, #8b7355 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+    </style>
+  </head>
+  <body class="bg-white text-dark overflow-x-hidden">
+    <nav class="fixed top-0 left-0 right-0 z-50 glass border-b border-gray-200">
+      <div
+        class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between"
+      >
+        <div class="flex items-center gap-3">
+          <a href="./index.html" class="flex items-center gap-3 logo-link">
+            <div
+              class="w-12 h-12 sm:h-14  sm:w-14 rounded-full flex items-center justify-center p-2"
+            >
+              <img
+                src="../../assets/logo.png"
+                alt="Saubhagya Architects Logo"
+              />
+            </div>
+            <div>
+              <h2 class="text-lg sm:text-3xl font-bold text-dark">Saubhagya Architects</h2>
+              <span class="text-base text-gray-500">Exceeding Expectations</span>
+            </div>
+          </a>
+        </div>
+
+        <div class="hidden md:flex items-center gap-8">
+          <a
+            href="./index.html"
+            class="text-sm font-medium text-dark hover:text-accent transition"
+            >Home</a
+          >
+          <a
+            href="./about.html"
+            class="text-sm font-medium text-dark hover:text-accent transition"
+            >About</a
+          >
+          <a
+            href="./portfolio.html"
+            class="text-sm font-medium text-dark hover:text-accent transition"
+            >Portfolio</a
+          >
+          <a
+            href="./services.html"
+            class="text-sm font-medium text-dark hover:text-accent transition"
+            >Services</a
+          >
+          <a
+            href="./blog.html"
+            class="text-sm font-medium text-dark hover:text-accent transition"
+            >Blog</a
+          >
+          <a href="./contact.html" class="">Contact</a>
+        </div>
+
+        <button id="menuBtn" class="md:hidden text-2xl text-dark">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+
+      <div
+        id="mobileMenu"
+        class="hidden md:hidden w-full glass border-t border-gray-200"
+      >
+        <a
+          href="./index.html"
+          class="block py-4 px-6 text-sm font-medium text-dark hover:bg-gray-100 transition"
+          >Home</a
+        >
+        <a
+          href="./about.html"
+          class="block py-4 px-6 text-sm font-medium text-dark hover:bg-gray-100 transition"
+          >About</a
+        >
+        <a
+          href="./portfolio.html"
+          class="block py-4 px-6 text-sm font-medium text-dark hover:bg-gray-100 transition"
+          >Portfolio</a
+        >
+        <a
+          href="./services.html"
+          class="block py-4 px-6 text-sm font-medium text-dark hover:bg-gray-100 transition"
+          >Services</a
+        >
+        <a
+          href="./blog.html"
+          class="block py-4 px-6 text-sm font-medium text-dark hover:bg-gray-100 transition"
+          >Blog</a
+        >
+        <a
+          href="./contact.html"
+          class="block py-4 px-6 text-sm font-medium text-dark hover:bg-gray-100 transition"
+          >Contact</a
+        >
+      </div>
+    </nav>
+
+    <main class="pt-20">
+      <section class="relative h-screen flex items-center">
+        <div class="absolute inset-0 z-0">
+          <div
+            class="hero-slide"
+            style="background-image: url('./assets/about1.jpg')"
+          ></div>
+          <div
+            class="hero-slide"
+            style="background-image: url('./assets/commercial.jpg')"
+          ></div>
+          <div
+            class="hero-slide"
+            style="background-image: url('./assets/project.jpg')"
+          ></div>
+          <div
+            class="absolute inset-0 bg-gradient-to-br from-black/80 via-black/70 to-transparent"
+          ></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-6 w-full">
+          <div class="max-w-3xl animate-fade-in-up">
+            <div class="inline-block glass-dark px-4 py-2 rounded-full mt-10">
+              <span class="text-xs font-semibold tracking-widest text-accent"
+                >OUR PHILOSOPHY</span
+              >
+            </div>
+            <h1
+              class="text-6xl md:text-8xl font-display font-black mb-6 leading-none text-white"
+            >
+              Designing Spaces that Inspire
+            </h1>
+            <p class="text-xl text-gray-300 mb-8 max-w-2xl leading-relaxed">
+              Creating meaningful architecture rooted in precision, purpose, and
+              sustainability.
+            </p>
+          </div>
+        </div>
+
+        <div
+          class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce"
+        >
+          <i class="fas fa-chevron-down text-2xl text-accent"></i>
+        </div>
+      </section>
+
+      <section class="about-section fade-in bg-white py-24 px-6">
+        <div class="services-container mx-auto max-w-6xl">
+          <div
+            class="about-content mx-auto max-w-3xl space-y-6 text-left md:text-center"
+          >
+            <h2 class="text-4xl md:text-5xl font-display font-bold text-dark">
+              Our Story
+            </h2>
+            <p class="text-lg text-gray-600 leading-relaxed">
+              Saubhagya Architects was founded on the belief that great
+              architecture transcends mere function. It creates experiences,
+              tells stories, and defines spaces that endure. Over the past
+              decade, we've worked with ambitious clients across residential,
+              commercial, and cultural sectors to bring their visions to life.
+            </p>
+
+            <h2
+              class="pt-12 text-4xl md:text-5xl font-display font-bold text-dark"
+            >
+              Our Philosophy
+            </h2>
+            <p class="text-lg text-gray-600 leading-relaxed">
+              We believe in design that is expressive, timeless, and buildable.
+              Every project is approached with meticulous attention to detail,
+              from initial concept through final delivery. We partner closely
+              with our clients to understand their needs, aspirations, and
+              constraints, ensuring the final result exceeds expectations.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="values-section bg-gray-50 py-24 px-6">
+        <div class="mx-auto max-w-6xl">
+          <div class="values-grid grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+            <div class="value-card text-center fade-in">
+              <i class="fas fa-trophy mb-4 text-4xl text-accent"></i>
+              <h3 class="mb-2 text-2xl font-display font-bold text-dark">
+                Excellence
+              </h3>
+              <p class="text-base text-gray-600">
+                We pursue the highest standards in every aspect of our work,
+                from design conception to project delivery.
+              </p>
+            </div>
+            <div class="value-card text-center fade-in">
+              <i class="fas fa-lightbulb mb-4 text-4xl text-accent"></i>
+              <h3 class="mb-2 text-2xl font-display font-bold text-dark">
+                Innovation
+              </h3>
+              <p class="text-base text-gray-600">
+                We embrace new technologies and methodologies while respecting
+                timeless design principles.
+              </p>
+            </div>
+            <div class="value-card text-center fade-in">
+              <i class="fas fa-leaf mb-4 text-4xl text-accent"></i>
+              <h3 class="mb-2 text-2xl font-display font-bold text-dark">
+                Sustainability
+              </h3>
+              <p class="text-base text-gray-600">
+                We design with environmental responsibility, creating spaces
+                that are beautiful and sustainable.
+              </p>
+            </div>
+            <div class="value-card text-center fade-in">
+              <i class="fas fa-handshake mb-4 text-4xl text-accent"></i>
+              <h3 class="mb-2 text-2xl font-display font-bold text-dark">
+                Collaboration
+              </h3>
+              <p class="text-base text-gray-600">
+                We believe the best results come from close partnerships with
+                clients, consultants, and craftspeople.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="our-team bg-white py-24 px-6">
+        <div class="services-container mx-auto max-w-6xl">
+          <div
+            class="section-header mx-auto mb-16 max-w-2xl text-center fade-in"
+          >
+            <h2
+              class="mb-4 text-5xl md:text-6xl font-display font-bold text-dark"
+            >
+              Meet Our Team
+            </h2>
+            <p class="text-lg text-gray-600">
+              The architects, designers, and thinkers behind our work.
+            </p>
+          </div>
+
+          <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            <div class="team-card text-center fade-in">
+              <div
+                class="mb-4 h-80 w-full overflow-hidden rounded-lg bg-gray-100"
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=870"
+                  alt="Portrait of Aarav Sharma"
+                  class="h-full w-full object-cover object-top"
+                />
+              </div>
+              <h3 class="mb-1 text-2xl font-display font-bold text-dark">
+                Aarav Sharma
+              </h3>
+              <p class="text-sm font-semibold text-accent tracking-wide">
+                LEAD ARCHITECT & FOUNDER
+              </p>
+            </div>
+            <div class="team-card text-center fade-in">
+              <div
+                class="mb-4 h-80 w-full overflow-hidden rounded-lg bg-gray-100"
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?q=80&w=870"
+                  alt="Portrait of Riya Kapoor"
+                  class="h-full w-full object-cover object-top"
+                />
+              </div>
+              <h3 class="mb-1 text-2xl font-display font-bold text-dark">
+                Riya Kapoor
+              </h3>
+              <p class="text-sm font-semibold text-accent tracking-wide">
+                HEAD OF INTERIORS
+              </p>
+            </div>
+            <div class="team-card text-center fade-in">
+              <div
+                class="mb-4 h-80 w-full overflow-hidden rounded-lg bg-gray-100"
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=870"
+                  alt="Portrait of Mohan Singh"
+                  class="h-full w-full object-cover object-top"
+                />
+              </div>
+              <h3 class="mb-1 text-2xl font-display font-bold text-dark">
+                Mohan Singh
+              </h3>
+              <p class="text-sm font-semibold text-accent tracking-wide">
+                SENIOR PROJECT MANAGER
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="reviews-section bg-gray-50 py-24 px-6">
+        <div class="services-container mx-auto max-w-6xl">
+          <h2
+            class="section-title mb-16 text-center text-5xl md:text-6xl font-display font-bold text-dark fade-in"
+          >
+            What Our Clients Say
+          </h2>
+          <div class="reviews-grid grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            <div
+              class="review-card flex flex-col rounded-lg border border-gray-200 bg-white p-6 shadow-sm fade-in"
+            >
+              <div class="review-header mb-4 flex items-center">
+                <img
+                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=687"
+                  alt="Rajesh Kumar"
+                  class="client-image mr-4 h-14 w-14 rounded-full object-cover"
+                />
+                <div class="client-info">
+                  <h4 class="font-bold text-dark">Rajesh Kumar</h4>
+                  <p class="client-title text-sm text-gray-500">
+                    CEO, Kumar Enterprises
+                  </p>
+                </div>
+              </div>
+              <div class="stars mb-4 text-accent">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i>
+              </div>
+              <p class="review-text text-base text-gray-600">
+                "Saubhagya Architects transformed our vision into an exceptional
+                corporate headquarters. Their attention to detail and creative
+                solutions exceeded our expectations."
+              </p>
+            </div>
+
+            <div
+              class="review-card flex flex-col rounded-lg border border-gray-200 bg-white p-6 shadow-sm fade-in"
+            >
+              <div class="review-header mb-4 flex items-center">
+                <img
+                  src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=764"
+                  alt="Priya Sharma"
+                  class="client-image mr-4 h-14 w-14 rounded-full object-cover"
+                />
+                <div class="client-info">
+                  <h4 class="font-bold text-dark">Priya Sharma</h4>
+                  <p class="client-title text-sm text-gray-500">
+                    Founder, Urban Living Spaces
+                  </p>
+                </div>
+              </div>
+              <div class="stars mb-4 text-accent">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i>
+              </div>
+              <p class="review-text text-base text-gray-600">
+                "Working with Saubhagya was a game-changer. They brought
+                innovation and sustainability into our residential project
+                beautifully. The result is a masterpiece!"
+              </p>
+            </div>
+
+            <div
+              class="review-card flex flex-col rounded-lg border border-gray-200 bg-white p-6 shadow-sm fade-in"
+            >
+              <div class="review-header mb-4 flex items-center">
+                <img
+                  src="https://images.unsplash.com/photo-1522529599102-193c0d76b5b6?q=80&w=870"
+                  alt="Arun Patel"
+                  class="client-image mr-4 h-14 w-14 rounded-full object-cover"
+                />
+                <div class="client-info">
+                  <h4 class="font-bold text-dark">Arun Patel</h4>
+                  <p class="client-title text-sm text-gray-500">
+                    Director, Heritage Hotels
+                  </p>
+                </div>
+              </div>
+              <div class="stars mb-4 text-accent">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i>
+              </div>
+              <p class="review-text text-base text-gray-600">
+                "Their design approach blends cultural sensitivity with modern
+                aesthetics. Our luxury hotel now stands as a landmark in the
+                city. Thank you, Saubhagya!"
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="py-32 px-6 relative overflow-hidden">
+        <!-- Background Image -->
+        <div
+          class="absolute inset-0 parallax bg-cover bg-center"
+          style="background-image: url('./assets/bg2.jpeg')"
+        ></div>
+
+        <!-- ✅ Black Overlay -->
+        <div class="absolute inset-0 bg-black/60"></div>
+
+        <!-- Content -->
+        <div class="relative z-10 max-w-4xl mx-auto text-center text-white">
+          <h2 class="text-5xl md:text-7xl font-display font-bold mb-6">
+            Ready to Create<br />Something
+            <span class="text-accent">Extraordinary?</span>
+          </h2>
+          <p class="text-xl text-gray-200 mb-10 max-w-2xl mx-auto">
+            Let's collaborate to design spaces that transcend expectations and
+            stand the test of time.
+          </p>
+          <a
+            href="./contact.html"
+            class="inline-block bg-accent px-8 py-4 rounded-full font-bold text-white text-lg hover:bg-accent/90 transition transform hover:scale-105"
+          >
+            Start Your Journey
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-gray-100 border-t border-gray-200 pt-20 pb-10">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="grid md:grid-cols-4 gap-12 mb-16">
+          <div>
+            <div class="flex items-center gap-3 mb-6">
+              <div
+                class="w-12 h-12 rounded-full flex items-center justify-center p-2"
+              >
+                <img src="./assets/logo.png" alt="Saubhagya Architects Logo" />
+              </div>
+              <div>
+                <h2 class="text-lg font-bold text-dark">Saubhagya</h2>
+                <span class="text-xs text-gray-600">Architects</span>
+              </div>
+            </div>
+            <p class="text-gray-600 text-sm mb-6">
+              A boutique studio with net zero mindset and timeless design
+              principles.
+            </p>
+            <div class="flex gap-4">
+              <a
+                href="#"
+                class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-dark hover:bg-accent transition"
+              >
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-dark hover:bg-accent transition"
+              >
+                <i class="fab fa-linkedin"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-dark hover:bg-accent transition"
+              >
+                <i class="fas fa-envelope"></i>
+              </a>
+            </div>
+          </div>
+
+          <div>
+            <h4
+              class="font-bold mb-6 text-accent uppercase tracking-wide text-sm"
+            >
+              Navigation
+            </h4>
+            <ul class="space-y-3">
+              <li>
+                <a
+                  href="index.html"
+                  class="text-gray-600 hover:text-dark transition"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a
+                  href="services.html"
+                  class="text-gray-600 hover:text-dark transition"
+                  >Services</a
+                >
+              </li>
+              <li>
+                <a
+                  href="portfolio.html"
+                  class="text-gray-600 hover:text-dark transition"
+                  >Portfolio</a
+                >
+              </li>
+              <li>
+                <a
+                  href="about.html"
+                  class="text-gray-600 hover:text-dark transition"
+                  >About</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4
+              class="font-bold mb-6 text-accent uppercase tracking-wide text-sm"
+            >
+              Services
+            </h4>
+            <ul class="space-y-3">
+              <li>
+                <a href="./pages/services/interior-design.html" class="text-gray-600 hover:text-dark transition"
+                  >Interior Design</a
+                >
+              </li>
+              <li>
+                <a href="./pages/services/sustainable-design.html" class="text-gray-600 hover:text-dark transition"
+                  >Sustainable Design</a
+                >
+              </li>
+              <li>
+                <a href="./pages/services/lighting-design.html" class="text-gray-600 hover:text-dark transition"
+                  >Lighting Design</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4
+              class="font-bold mb-6 text-accent uppercase tracking-wide text-sm"
+            >
+              Contact
+            </h4>
+            <ul class="space-y-3 text-gray-600">
+              <li>Dehradun, India</li>
+              <li>
+                <a href="tel:+919714851489" class="hover:text-dark transition"
+                  >+91 97148 51489</a
+                >
+              </li>
+              <li>
+                <a href="tel:+916399061515" class="hover:text-dark transition"
+                  >+91 63990 61515</a
+                >
+              </li>
+              <li>
+                <a
+                  href="mailto:saubhagyaarchitects@gmail.com"
+                  class="hover:text-dark transition text-sm"
+                  >saubhagyaarchitects@gmail.com</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div
+          class="pt-8 border-t border-gray-200 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-600"
+        >
+          <p>&copy; 2025 Saubhagya Architects. All rights reserved.</p>
+          <div class="flex gap-6">
+            <a href="#" class="hover:text-dark transition">Privacy</a>
+            <a href="#" class="hover:text-dark transition">Terms</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <a
+      href="https://wa.me/919714851489"
+      class="fixed bottom-8 right-8 z-50 bg-[#25D366] w-16 h-16 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition transform"
+    >
+      <i class="fab fa-whatsapp text-white text-3xl"></i>
+    </a>
+
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@latest/bundled/lenis.min.js"></script>
+
+    <script>
+      // --- Lenis Smooth Scroll ---
+      const lenis = new Lenis();
+      function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
+      requestAnimationFrame(raf);
+
+      // --- Mobile Menu Toggle ---
+      const menuBtn = document.getElementById("menuBtn");
+      const mobileMenu = document.getElementById("mobileMenu");
+      const menuIcon = menuBtn.querySelector("i");
+
+      menuBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+        if (mobileMenu.classList.contains("hidden")) {
+          menuIcon.classList.remove("fa-times");
+          menuIcon.classList.add("fa-bars");
+        } else {
+          menuIcon.classList.remove("fa-bars");
+          menuIcon.classList.add("fa-times");
+        }
+      });
+
+      // --- Hero Slideshow ---
+      const slides = document.querySelectorAll(".hero-slide");
+      let currentSlide = 0;
+      const slideInterval = 3000;
+
+      function nextSlide() {
+        if (slides.length === 0) return;
+        slides[currentSlide].classList.remove("visible");
+        currentSlide = (currentSlide + 1) % slides.length;
+        slides[currentSlide].classList.add("visible");
+      }
+
+      if (slides.length > 0) {
+        slides[0].classList.add("visible");
+        setInterval(nextSlide, slideInterval);
+      }
+
+      // --- NEW: Fade-in on Scroll ---
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+            }
+          });
+        },
+        { threshold: 0.1 }
+      ); // Triggers when 10% of the element is visible
+
+      const fadeInElements = document.querySelectorAll(".fade-in");
+      fadeInElements.forEach((el) => observer.observe(el));
+    </script>
+  </body>
+</html>
