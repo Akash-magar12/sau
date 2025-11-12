@@ -117,9 +117,13 @@
         transition: width 0.3s ease;
       }
 
-      nav a:hover::after {
-        width: 100%;
+      /* ✅ CHANGE: Made hover effect for nav links desktop-only */
+      @media (min-width: 768px) {
+        nav a:not(.logo-link):hover::after {
+          width: 100%;
+        }
       }
+
       nav a.logo-link::after {
         display: none;
         content: none;
@@ -148,6 +152,12 @@
         -webkit-text-fill-color: transparent;
         background-clip: text;
       }
+
+      /* ✅ CHANGE: Added class for mobile menu animation */
+      .mobile-menu-open {
+        max-height: 500px !important; /* !important to override max-h-0 */
+        opacity: 1 !important; /* !important to override opacity-0 */
+      }
     </style>
   </head>
   <body class="bg-white text-dark overflow-x-hidden">
@@ -166,7 +176,7 @@
               <h2 class="text-lg sm:text-3xl font-bold text-dark">
                 Saubhagya Architects
               </h2>
-              <span class="text-base text-gray-500"
+              <span class="text-xs sm:text-base text-gray-500"
                 >Exceeding Expectations</span
               >
             </div>
@@ -209,7 +219,7 @@
 
       <div
         id="mobileMenu"
-        class="hidden md:hidden w-full glass border-t border-gray-200"
+        class="md:hidden w-full glass border-t border-gray-200 overflow-hidden max-h-0 opacity-0 transition-all duration-500 ease-in-out"
       >
         <a
           href="./index.html"
@@ -317,30 +327,27 @@
 
     <section class="py-24 px-6 bg-white">
       <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-        <!-- Left: Image -->
         <div class="overflow-hidden shadow-lg">
           <img
             src="./assets/bg5.jpeg"
             alt="Architectural Design"
-            class="w-full h-[450px] object-cover hover:scale-105 transition-transform duration-500"
+            class="w-full h-[450px] object-cover hover:scale-105 transition-transform rounded-md duration-500"
           />
         </div>
 
-        <!-- Right: Text -->
         <div class="text-center md:text-left">
           <h2
             class="text-4xl md:text-5xl font-display font-bold text-dark mb-6"
           >
             Timeless Design.<br />Visionary Spaces.
           </h2>
-          <p class="text-lg text-gray-600 leading-relaxed mb-8">
-            Exceeding expectations isn't just a tagline — it's our core design
-            principle. Every project blends creativity, precision, and purpose
-            to create spaces that inspire and endure.
+          <p class="text-base sm:text-lg text-gray-600 leading-relaxed mb-8">
+            At Saubhagya Architects, we design spaces where Vastu, wellness, and
+            technology meet in harmony.
           </p>
           <a
             href="./portfolio.html"
-            class="inline-block bg-accent text-white px-8 py-3 rounded-full font-medium hover:bg-accent/900 transition"
+            class="inline-block bg-accent text-sm text-white px-8 py-3 rounded-full font-medium hover:bg-accent/900 transition"
           >
             Explore Our Work
           </a>
@@ -360,7 +367,7 @@
           >
             Our Services
           </h2>
-          <p class="text-gray-600 text-lg max-w-2xl mx-auto">
+          <p class="text-gray-600 text-base sm:text-lg max-w-2xl mx-auto">
             Comprehensive architectural solutions tailored to your vision
           </p>
         </div>
@@ -392,7 +399,7 @@
             >
               Interior Design
             </h3>
-            <p class="text-gray-600 leading-relaxed">
+            <p class="text-gray-600 text-sm sm:text-base leading-relaxed">
               Curated spaces that blend functionality with aesthetic excellence,
               featuring custom furniture and ambient lighting.
             </p>
@@ -424,7 +431,7 @@
             >
               Residential Architecture
             </h3>
-            <p class="text-gray-600 leading-relaxed">
+            <p class="text-gray-600 text-sm sm:text-base leading-relaxed">
               Bespoke villas and apartments that harmonize natural light,
               privacy, and breathtaking views.
             </p>
@@ -456,7 +463,7 @@
             >
               Commercial Architecture
             </h3>
-            <p class="text-gray-600 leading-relaxed">
+            <p class="text-gray-600 text-sm sm:text-base leading-relaxed">
               Strategic office and retail environments that embody your brand
               while maximizing functionality.
             </p>
@@ -488,7 +495,7 @@
             >
               Landscape Design
             </h3>
-            <p class="text-gray-600 leading-relaxed">
+            <p class="text-gray-600 text-sm sm:text-base leading-relaxed">
               Organic outdoor spaces featuring courtyards and green roofs that
               seamlessly connect with nature.
             </p>
@@ -520,7 +527,7 @@
             >
               Sustainable Design
             </h3>
-            <p class="text-gray-600 leading-relaxed">
+            <p class="text-gray-600 text-sm sm:text-base leading-relaxed">
               Eco-conscious solutions leveraging passive strategies for optimal
               comfort and minimal environmental impact.
             </p>
@@ -552,7 +559,7 @@
             >
               Project Management
             </h3>
-            <p class="text-gray-600 leading-relaxed">
+            <p class="text-gray-600 text-sm sm:text-base leading-relaxed">
               End-to-end coordination of budgets, vendors, and timelines with
               unwavering accountability.
             </p>
@@ -604,7 +611,7 @@
               </div>
             </div>
             <h3 class="text-2xl font-bold mb-3 text-dark">Doon Boulevard</h3>
-            <p class="text-gray-600">
+            <p class="text-gray-600 text-sm sm:text-base">
               A landmark destination combining retail, dining, and urban
               residences in the city's heart.
             </p>
@@ -628,7 +635,7 @@
               </div>
             </div>
             <h3 class="text-2xl font-bold mb-3 text-dark">Apex Tower</h3>
-            <p class="text-gray-600">
+            <p class="text-gray-600 text-sm sm:text-base">
               A Grade-A tower with sustainable design redefining modern
               workspace for global leaders.
             </p>
@@ -654,7 +661,7 @@
               </div>
             </div>
             <h3 class="text-2xl font-bold mb-3 text-dark">Foothill Avenue</h3>
-            <p class="text-gray-600">
+            <p class="text-gray-600 text-sm sm:text-base">
               Exclusive villas nestled in tranquil foothills, merging luxury
               with natural landscape.
             </p>
@@ -671,7 +678,7 @@
         <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
           <div class="text-center">
             <div
-              class="text-5xl font-bold text-accent mb-2 js-count-target"
+              class="text-4xl sm:text-5xl font-bold text-accent mb-2 js-count-target"
               data-target="250"
               data-postfix="+"
             >
@@ -683,7 +690,7 @@
           </div>
           <div class="text-center">
             <div
-              class="text-5xl font-bold text-accent mb-2 js-count-target"
+              class="text-4xl sm:text-5xl font-bold text-accent mb-2 js-count-target"
               data-target="15"
               data-postfix="+"
             >
@@ -695,7 +702,7 @@
           </div>
           <div class="text-center">
             <div
-              class="text-5xl font-bold text-accent mb-2 js-count-target"
+              class="text-4xl sm:text-5xl font-bold text-accent mb-2 js-count-target"
               data-target="98"
               data-postfix="%"
             >
@@ -707,7 +714,7 @@
           </div>
           <div class="text-center">
             <div
-              class="text-5xl font-bold text-accent mb-2 js-count-target"
+              class="text-4xl sm:text-5xl font-bold text-accent mb-2 js-count-target"
               data-target="50"
               data-postfix="+"
             >
@@ -722,28 +729,25 @@
     </section>
 
     <section class="py-32 px-6 relative overflow-hidden">
-      <!-- Background Image -->
       <div
         class="absolute inset-0 parallax bg-cover bg-center"
         style="background-image: url('./assets/bg8.jpeg')"
       ></div>
 
-      <!-- ✅ Black Overlay -->
       <div class="absolute inset-0 bg-black/60"></div>
 
-      <!-- Content -->
       <div class="relative z-10 max-w-4xl mx-auto text-center text-white">
         <h2 class="text-5xl md:text-7xl font-display font-bold mb-6">
           Ready to Create<br />Something
           <span class="text-accent">Extraordinary?</span>
         </h2>
-        <p class="text-xl text-gray-200 mb-10 max-w-2xl mx-auto">
+        <p class="text-base sm:text-xl text-gray-200 mb-10 max-w-2xl mx-auto">
           Let's collaborate to design spaces that transcend expectations and
           stand the test of time.
         </p>
         <a
           href="./contact.html"
-          class="inline-block bg-accent px-8 py-4 rounded-full font-bold text-white text-lg hover:bg-accent/90 transition transform hover:scale-105"
+          class="inline-block bg-accent px-8 py-4 rounded-full font-bold text-white text-base sm:text-lg hover:bg-accent/90 transition transform hover:scale-105"
         >
           Start Your Journey
         </a>
@@ -764,14 +768,13 @@
                 <h2 class="text-lg font-bold text-dark">
                   Saubhagya Architects
                 </h2>
-                <span class="text-xs text-gray-600"
+                <span class="text-xs sm:text-sm text-gray-600"
                   >Exceeding Expectations</span
                 >
               </div>
             </div>
             <p class="text-gray-600 text-sm mb-6">
-              Exceeding expectations through creativity, precision, and
-              purposeful architectural design.
+              Luxury, wellness, and technology in flow.
             </p>
             <div class="flex gap-4">
               <a
@@ -801,7 +804,7 @@
             >
               Navigation
             </h4>
-            <ul class="space-y-3">
+            <ul class="space-y-3 text-base">
               <li>
                 <a
                   href="./index.html"
@@ -839,7 +842,7 @@
             >
               Services
             </h4>
-            <ul class="space-y-3">
+            <ul class="space-y-3 text-base">
               <li>
                 <a
                   href="./pages/services/interior-design.html"
@@ -870,7 +873,7 @@
             >
               Contact
             </h4>
-            <ul class="space-y-3 text-gray-600">
+            <ul class="space-y-3 text-base text-gray-600">
               <li>Dehradun, India</li>
               <li>
                 <a href="tel:+919714851489" class="hover:text-dark transition"
@@ -928,22 +931,24 @@
       const menuIcon = menuBtn.querySelector("i"); // Get the icon
 
       menuBtn.addEventListener("click", () => {
-        mobileMenu.classList.toggle("hidden");
+        // ✅ CHANGE: Toggles animation class instead of 'hidden'
+        mobileMenu.classList.toggle("mobile-menu-open");
 
         // Toggle icon
-        if (mobileMenu.classList.contains("hidden")) {
-          menuIcon.classList.remove("fa-times");
-          menuIcon.classList.add("fa-bars");
-        } else {
+        // ✅ CHANGE: Toggles based on animation class
+        if (mobileMenu.classList.contains("mobile-menu-open")) {
           menuIcon.classList.remove("fa-bars");
           menuIcon.classList.add("fa-times");
+        } else {
+          menuIcon.classList.remove("fa-times");
+          menuIcon.classList.add("fa-bars");
         }
       });
 
       // --- Hero Slideshow ---
       const slides = document.querySelectorAll(".hero-slide");
       let currentSlide = 0;
-      const slideInterval = 3000; // 5 seconds
+      const slideInterval = 3000; // 3 seconds
 
       function nextSlide() {
         if (slides.length === 0) return;

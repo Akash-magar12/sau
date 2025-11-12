@@ -93,9 +93,14 @@
         background: #bfa181;
         transition: width 0.3s ease;
       }
-      nav a:hover::after {
-        width: 100%;
+
+      /* ✅ CHANGE: Made hover effect for nav links desktop-only */
+      @media (min-width: 768px) {
+        nav a:not(.logo-link):hover::after {
+          width: 100%;
+        }
       }
+
       nav a.logo-link::after {
         display: none;
         content: none;
@@ -112,6 +117,12 @@
         background: rgba(255, 255, 255, 0.1);
         backdrop-filter: blur(10px);
         border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      /* ✅ CHANGE: Added class for mobile menu animation */
+      .mobile-menu-open {
+        max-height: 500px !important; /* !important to override max-h-0 */
+        opacity: 1 !important; /* !important to override opacity-0 */
       }
     </style>
   </head>
@@ -134,7 +145,7 @@
               <h2 class="text-lg sm:text-3xl font-bold text-dark">
                 Saubhagya Architects
               </h2>
-              <span class="text-base text-gray-500"
+              <span class="text-xs sm:text-base text-gray-500"
                 >Exceeding Expectations</span
               >
             </div>
@@ -181,7 +192,7 @@
 
       <div
         id="mobileMenu"
-        class="hidden md:hidden w-full glass border-t border-gray-200"
+        class="md:hidden w-full glass border-t border-gray-200 overflow-hidden max-h-0 opacity-0 transition-all duration-500 ease-in-out"
       >
         <a
           href="../../index.html"
@@ -216,7 +227,7 @@
       </div>
     </nav>
 
-    <main>
+    <main class="pt-20">
       <section class="relative h-screen flex items-center">
         <div class="absolute inset-0 z-0">
           <div
@@ -256,7 +267,9 @@
             >
               Renovation & Retrofits
             </h1>
-            <p class="sm:text-xl text-gray-300 mb-8 max-w-2xl leading-relaxed">
+            <p
+              class="text-base sm:text-xl text-gray-300 mb-8 max-w-2xl leading-relaxed"
+            >
               Breathe new life into existing structures with modern performance
               and sustainable design.
             </p>
@@ -282,7 +295,9 @@
             >
               Renovation & Retrofit Services in Dehradun
             </h2>
-            <p class="text-lg text-gray-600 leading-relaxed">
+            <p
+              class="text-base sm:text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto"
+            >
               We believe in the power of transformation. Our renovation and
               retrofit services in Dehradun are about breathing new life into
               existing structures. We preserve the character of your space while
@@ -344,7 +359,7 @@
                 <h3 class="text-2xl font-display font-bold text-dark mt-4 mb-2">
                   Adaptive Reuse & Restoration
                 </h3>
-                <p class="text-gray-600 leading-relaxed">
+                <p class="text-gray-600 text-sm sm:text-base leading-relaxed">
                   We specialize in giving old buildings new purpose. We
                   carefully restore heritage features while adapting the space
                   for a new, modern life, from homes to commercial properties.
@@ -360,7 +375,7 @@
                 <h3 class="text-2xl font-display font-bold text-dark mt-4 mb-2">
                   Interior Remodeling
                 </h3>
-                <p class="text-gray-600 leading-relaxed">
+                <p class="text-gray-600 text-sm sm:text-base leading-relaxed">
                   We rethink your existing layout to create a space that feels
                   new. We redesign kitchens, bathrooms, and living areas to
                   improve flow, function, and style.
@@ -376,7 +391,7 @@
                 <h3 class="text-2xl font-display font-bold text-dark mt-4 mb-2">
                   Sustainable Retrofits
                 </h3>
-                <p class="text-gray-600 leading-relaxed">
+                <p class="text-gray-600 text-sm sm:text-base leading-relaxed">
                   Upgrade your building's performance. We add modern insulation,
                   energy-efficient windows, and smart systems to older
                   structures, making them more comfortable and less costly to
@@ -391,7 +406,7 @@
               href="https://wa.me/919876543210?text=Hi%20Saubhagya%20Architects%20—%20Enquiry:%20Renovation%20&%20Retrofits"
               target="_blank"
               rel="noopener"
-              class="inline-block bg-accent px-6 py-3 sm:px-10 sm:py-5 rounded-full font-bold text-white sm:text-lg hover:bg-accent/90 transition transform hover:scale-105"
+              class="inline-block bg-accent px-6 py-3 sm:px-10 sm:py-5 rounded-full font-bold text-white text-sm sm:text-lg hover:bg-accent/90 transition transform hover:scale-105"
             >
               Start Your Renovation Project
             </a>
@@ -416,14 +431,13 @@
                   <h2 class="text-lg font-bold text-dark">
                     Saubhagya Architects
                   </h2>
-                  <span class="text-xs text-gray-600"
+                  <span class="text-xs sm:text-sm text-gray-600"
                     >Exceeding Expectations</span
                   >
                 </div>
               </div>
               <p class="text-gray-600 text-sm mb-6">
-                Exceeding expectations through creativity, precision, and
-                purposeful architectural design.
+                Luxury, wellness, and technology in flow.
               </p>
               <div class="flex gap-4">
                 <a
@@ -453,7 +467,7 @@
               >
                 Navigation
               </h4>
-              <ul class="space-y-3">
+              <ul class="space-y-3 text-base">
                 <li>
                   <a
                     href="../../index.html"
@@ -491,7 +505,7 @@
               >
                 Services
               </h4>
-              <ul class="space-y-3">
+              <ul class="space-y-3 text-base">
                 <li>
                   <a
                     href="../../pages/services/interior-design.html"
@@ -522,13 +536,19 @@
               >
                 Contact
               </h4>
-              <ul class="space-y-3 text-gray-600">
+              <ul class="space-y-3 text-base text-gray-600">
                 <li>Dehradun, India</li>
                 <li>
-                  <a href="tel:+919876543210">+91 98765 43210</a>
+                  <a href="tel:+919876543210" class="hover:text-dark transition"
+                    >+91 98765 43210</a
+                  >
                 </li>
                 <li>
-                  <a href="mailto:hello@saubhagya.com">hello@saubhagya.com</a>
+                  <a
+                    href="mailto:hello@saubhagya.com"
+                    class="hover:text-dark transition text-sm"
+                    >hello@saubhagya.com</a
+                  >
                 </li>
               </ul>
             </div>
@@ -539,8 +559,8 @@
           >
             <p>&copy; 2025 Saubhagya Architects. All rights reserved.</p>
             <div class="flex gap-6">
-              <a href="#">Privacy</a>
-              <a href="#">Terms</a>
+              <a href="#" class="hover:text-dark transition">Privacy</a>
+              <a href="#" class="hover:text-dark transition">Terms</a>
             </div>
           </div>
         </div>
@@ -570,13 +590,16 @@
       const menuIcon = menuBtn.querySelector("i");
 
       menuBtn.addEventListener("click", () => {
-        mobileMenu.classList.toggle("hidden");
-        if (mobileMenu.classList.contains("hidden")) {
-          menuIcon.classList.remove("fa-times");
-          menuIcon.classList.add("fa-bars");
-        } else {
+        // ✅ CHANGE: Toggles animation class instead of 'hidden'
+        mobileMenu.classList.toggle("mobile-menu-open");
+
+        // ✅ CHANGE: Toggles based on animation class
+        if (mobileMenu.classList.contains("mobile-menu-open")) {
           menuIcon.classList.remove("fa-bars");
           menuIcon.classList.add("fa-times");
+        } else {
+          menuIcon.classList.remove("fa-times");
+          menuIcon.classList.add("fa-bars");
         }
       });
 
@@ -592,7 +615,7 @@
         slides[currentSlide].classList.add("visible");
       }
 
-      // Only run slideshow if there's more than one slide
+      // ✅ CHANGE: Fixed slideshow logic to only run if multiple slides exist
       if (slides.length > 1) {
         slides[0].classList.add("visible");
         setInterval(nextSlide, slideInterval);

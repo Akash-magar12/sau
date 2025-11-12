@@ -115,9 +115,14 @@
         background: #bfa181;
         transition: width 0.3s ease;
       }
-      nav a:hover::after {
-        width: 100%;
+
+      /* ✅ CHANGE: Made hover effect for nav links desktop-only */
+      @media (min-width: 768px) {
+        nav a:not(.logo-link):hover::after {
+          width: 100%;
+        }
       }
+
       nav a.logo-link::after {
         display: none;
         content: none;
@@ -141,6 +146,12 @@
         -webkit-text-fill-color: transparent;
         background-clip: text;
       }
+
+      /* ✅ CHANGE: Added class for mobile menu animation */
+      .mobile-menu-open {
+        max-height: 500px !important; /* !important to override max-h-0 */
+        opacity: 1 !important; /* !important to override opacity-0 */
+      }
     </style>
   </head>
   <body class="bg-white text-dark overflow-x-hidden">
@@ -159,7 +170,7 @@
               <h2 class="text-lg sm:text-3xl font-bold text-dark">
                 Saubhagya Architects
               </h2>
-              <span class="text-base text-gray-500"
+              <span class="text-xs sm:text-base text-gray-500"
                 >Exceeding Expectations</span
               >
             </div>
@@ -202,7 +213,7 @@
 
       <div
         id="mobileMenu"
-        class="hidden md:hidden w-full glass border-t border-gray-200"
+        class="md:hidden w-full glass border-t border-gray-200 overflow-hidden max-h-0 opacity-0 transition-all duration-500 ease-in-out"
       >
         <a
           href="./index.html"
@@ -288,7 +299,7 @@
       <section class="gallery-section bg-white py-24 px-6">
         <div class="gallery-container mx-auto max-w-6xl">
           <h2
-            class="gallery-title mb-16 text-center text-5xl md:text-6xl font-display font-bold text-dark fade-in"
+            class="gallery-title mb-16 text-center text-4xl sm:text-5xl md:text-6xl font-display font-bold text-dark fade-in"
           >
             Featured Projects
           </h2>
@@ -310,7 +321,7 @@
               <h3 class="mb-2 text-2xl font-display font-bold text-dark">
                 Doon Boulevard
               </h3>
-              <p class="text-base leading-relaxed text-gray-600">
+              <p class="text-sm sm:text-base leading-relaxed text-gray-600">
                 A landmark mixed-use destination in the heart of the city,
                 combining high-end retail, dining, and contemporary urban
                 residences.
@@ -333,7 +344,7 @@
               <h3 class="mb-2 text-2xl font-display font-bold text-dark">
                 Apex Tower
               </h3>
-              <p class="text-base leading-relaxed text-gray-600">
+              <p class="text-sm sm:text-base leading-relaxed text-gray-600">
                 Soaring over the skyline, Apex Tower is a Grade-A corporate
                 headquarters. Its state-of-the-art sustainable design and smart
                 systems.
@@ -356,7 +367,7 @@
               <h3 class="mb-2 text-2xl font-display font-bold text-dark">
                 Foothill Avenue
               </h3>
-              <p class="text-base leading-relaxed text-gray-600">
+              <p class="text-sm sm:text-base leading-relaxed text-gray-600">
                 An exclusive community of private villas nestled in the tranquil
                 foothills, integrating luxury modern living with the surrounding
                 natural landscape.
@@ -379,7 +390,7 @@
               <h3 class="mb-2 text-2xl font-display font-bold text-dark">
                 The Rawat Residence
               </h3>
-              <p class="text-base leading-relaxed text-gray-600">
+              <p class="text-sm sm:text-base leading-relaxed text-gray-600">
                 A modern minimalist villa that cantilevers over the hillside,
                 blending concrete, glass, and wood to create a seamless
                 indoor-outdoor living experience.
@@ -402,7 +413,7 @@
               <h3 class="mb-2 text-2xl font-display font-bold text-dark">
                 HillVilla
               </h3>
-              <p class="text-base leading-relaxed text-gray-600">
+              <p class="text-sm sm:text-base leading-relaxed text-gray-600">
                 A stunning A-frame getaway combining rustic charm with modern
                 luxury. Features a two-story glass facade and balconies designed
                 for panoramic mountain views.
@@ -425,7 +436,7 @@
               <h3 class="mb-2 text-2xl font-display font-bold text-dark">
                 The Verma Residence
               </h3>
-              <p class="text-base leading-relaxed text-gray-600">
+              <p class="text-sm sm:text-base leading-relaxed text-gray-600">
                 A contemporary urban home defined by its bold stone facade and
                 large glass installations. This residence balances privacy with
                 abundant natural light.
@@ -436,27 +447,26 @@
       </section>
 
       <section class="py-32 px-6 relative overflow-hidden">
-        <!-- Background Image -->
         <div
           class="absolute inset-0 parallax bg-cover bg-center"
           style="background-image: url('./assets/res3.jpeg')"
         ></div>
 
-        <!-- ✅ Black Overlay -->
         <div class="absolute inset-0 bg-black/60"></div>
 
-        <!-- Content -->
         <div class="relative z-10 max-w-4xl mx-auto text-center text-white">
-          <h2 class="text-5xl md:text-7xl font-display font-bold mb-6">
+          <h2
+            class="text-4xl sm:text-5xl md:text-7xl font-display font-bold mb-6"
+          >
             Inspired by our work?
           </h2>
-          <p class="text-xl text-gray-200 mb-10 max-w-2xl mx-auto">
+          <p class="text-base sm:text-xl text-gray-200 mb-10 max-w-2xl mx-auto">
             Let's bring your vision to life with the same dedication and
             excellence we've applied to these projects.
           </p>
           <a
             href="./contact.html"
-            class="inline-block bg-accent px-8 py-4 rounded-full font-bold text-white text-lg hover:bg-accent/90 transition transform hover:scale-105"
+            class="inline-block bg-accent px-8 py-4 rounded-full font-bold text-white text-base sm:text-lg hover:bg-accent/90 transition transform hover:scale-105"
           >
             Start Your Project
           </a>
@@ -478,14 +488,13 @@
                 <h2 class="text-lg font-bold text-dark">
                   Saubhagya Architects
                 </h2>
-                <span class="text-xs text-gray-600"
+                <span class="text-xs sm:text-sm text-gray-600"
                   >Exceeding Expectations</span
                 >
               </div>
             </div>
             <p class="text-gray-600 text-sm mb-6">
-              Exceeding expectations through creativity, precision, and
-              purposeful architectural design.
+              Luxury, wellness, and technology in flow.
             </p>
             <div class="flex gap-4">
               <a
@@ -515,7 +524,7 @@
             >
               Navigation
             </h4>
-            <ul class="space-y-3">
+            <ul class="space-y-3 text-base">
               <li>
                 <a
                   href="index.html"
@@ -553,7 +562,7 @@
             >
               Services
             </h4>
-            <ul class="space-y-3">
+            <ul class="space-y-3 text-base">
               <li>
                 <a
                   href="./pages/services/interior-design.html"
@@ -584,7 +593,7 @@
             >
               Contact
             </h4>
-            <ul class="space-y-3 text-gray-600">
+            <ul class="space-y-3 text-base text-gray-600">
               <li>Dehradun, India</li>
               <li>
                 <a href="tel:+919714851489" class="hover:text-dark transition"
@@ -643,13 +652,16 @@
       const menuIcon = menuBtn.querySelector("i");
 
       menuBtn.addEventListener("click", () => {
-        mobileMenu.classList.toggle("hidden");
-        if (mobileMenu.classList.contains("hidden")) {
-          menuIcon.classList.remove("fa-times");
-          menuIcon.classList.add("fa-bars");
-        } else {
+        // ✅ CHANGE: Toggles animation class instead of 'hidden'
+        mobileMenu.classList.toggle("mobile-menu-open");
+
+        // ✅ CHANGE: Toggles based on animation class
+        if (mobileMenu.classList.contains("mobile-menu-open")) {
           menuIcon.classList.remove("fa-bars");
           menuIcon.classList.add("fa-times");
+        } else {
+          menuIcon.classList.remove("fa-times");
+          menuIcon.classList.add("fa-bars");
         }
       });
 

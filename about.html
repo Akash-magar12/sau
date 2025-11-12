@@ -114,9 +114,14 @@
         background: #bfa181;
         transition: width 0.3s ease;
       }
-      nav a:hover::after {
-        width: 100%;
+
+      /* ✅ CHANGE: Made hover effect for nav links desktop-only */
+      @media (min-width: 768px) {
+        nav a:not(.logo-link):hover::after {
+          width: 100%;
+        }
       }
+
       nav a.logo-link::after {
         display: none;
         content: none;
@@ -140,6 +145,12 @@
         -webkit-text-fill-color: transparent;
         background-clip: text;
       }
+
+      /* ✅ CHANGE: Added class for mobile menu animation */
+      .mobile-menu-open {
+        max-height: 500px !important; /* !important to override max-h-0 */
+        opacity: 1 !important; /* !important to override opacity-0 */
+      }
     </style>
   </head>
   <body class="bg-white text-dark overflow-x-hidden">
@@ -158,7 +169,7 @@
               <h2 class="text-lg sm:text-3xl font-bold text-dark">
                 Saubhagya Architects
               </h2>
-              <span class="text-base text-gray-500"
+              <span class="text-xs sm:text-base text-gray-500"
                 >Exceeding Expectations</span
               >
             </div>
@@ -201,7 +212,7 @@
 
       <div
         id="mobileMenu"
-        class="hidden md:hidden w-full glass border-t border-gray-200"
+        class="md:hidden w-full glass border-t border-gray-200 overflow-hidden max-h-0 opacity-0 transition-all duration-500 ease-in-out"
       >
         <a
           href="./index.html"
@@ -292,7 +303,7 @@
             <h2 class="text-4xl md:text-5xl font-display font-bold text-dark">
               Our Story
             </h2>
-            <p class="text-lg text-gray-600 leading-relaxed">
+            <p class="text-base sm:text-lg text-gray-600 leading-relaxed">
               Saubhagya Architects was founded on the belief that great
               architecture transcends mere function. It creates experiences,
               tells stories, and defines spaces that endure. Over the past
@@ -305,12 +316,9 @@
             >
               Our Philosophy
             </h2>
-            <p class="text-lg text-gray-600 leading-relaxed">
-              We believe in design that is expressive, timeless, and buildable.
-              Every project is approached with meticulous attention to detail,
-              from initial concept through final delivery. We partner closely
-              with our clients to understand their needs, aspirations, and
-              constraints, ensuring the final result exceeds expectations.
+            <p class="text-base sm:text-lg text-gray-600 leading-relaxed">
+              A Saubhagya Smart Home is not just built. It breathes, thinks, and
+              adapts, flowing with nature, energy, and life itself.
             </p>
           </div>
         </div>
@@ -373,7 +381,7 @@
             >
               Meet Our Team
             </h2>
-            <p class="text-lg text-gray-600">
+            <p class="text-base sm:text-lg text-gray-600">
               The architects, designers, and thinkers behind our work.
             </p>
           </div>
@@ -530,28 +538,25 @@
       </section>
 
       <section class="py-32 px-6 relative overflow-hidden">
-        <!-- Background Image -->
         <div
           class="absolute inset-0 parallax bg-cover bg-center"
           style="background-image: url('./assets/bg2.jpeg')"
         ></div>
 
-        <!-- ✅ Black Overlay -->
         <div class="absolute inset-0 bg-black/60"></div>
 
-        <!-- Content -->
         <div class="relative z-10 max-w-4xl mx-auto text-center text-white">
           <h2 class="text-5xl md:text-7xl font-display font-bold mb-6">
             Ready to Create<br />Something
             <span class="text-accent">Extraordinary?</span>
           </h2>
-          <p class="text-xl text-gray-200 mb-10 max-w-2xl mx-auto">
+          <p class="text-base sm:text-xl text-gray-200 mb-10 max-w-2xl mx-auto">
             Let's collaborate to design spaces that transcend expectations and
             stand the test of time.
           </p>
           <a
             href="./contact.html"
-            class="inline-block bg-accent px-8 py-4 rounded-full font-bold text-white text-lg hover:bg-accent/90 transition transform hover:scale-105"
+            class="inline-block bg-accent px-8 py-4 rounded-full font-bold text-white text-base sm:text-lg hover:bg-accent/90 transition transform hover:scale-105"
           >
             Start Your Journey
           </a>
@@ -573,14 +578,13 @@
                 <h2 class="text-lg font-bold text-dark">
                   Saubhagya Architects
                 </h2>
-                <span class="text-xs text-gray-600"
+                <span class="text-xs sm:text-sm text-gray-600"
                   >Exceeding Expectations</span
                 >
               </div>
             </div>
             <p class="text-gray-600 text-sm mb-6">
-              Exceeding expectations through creativity, precision, and
-              purposeful architectural design.
+              Luxury, wellness, and technology in flow.
             </p>
             <div class="flex gap-4">
               <a
@@ -610,7 +614,7 @@
             >
               Navigation
             </h4>
-            <ul class="space-y-3">
+            <ul class="space-y-3 text-base">
               <li>
                 <a
                   href="index.html"
@@ -648,7 +652,7 @@
             >
               Services
             </h4>
-            <ul class="space-y-3">
+            <ul class="space-y-3 text-base">
               <li>
                 <a
                   href="./pages/services/interior-design.html"
@@ -679,7 +683,7 @@
             >
               Contact
             </h4>
-            <ul class="space-y-3 text-gray-600">
+            <ul class="space-y-3 text-base text-gray-600">
               <li>Dehradun, India</li>
               <li>
                 <a href="tel:+919714851489" class="hover:text-dark transition"
@@ -738,13 +742,16 @@
       const menuIcon = menuBtn.querySelector("i");
 
       menuBtn.addEventListener("click", () => {
-        mobileMenu.classList.toggle("hidden");
-        if (mobileMenu.classList.contains("hidden")) {
-          menuIcon.classList.remove("fa-times");
-          menuIcon.classList.add("fa-bars");
-        } else {
+        // ✅ CHANGE: Toggles animation class instead of 'hidden'
+        mobileMenu.classList.toggle("mobile-menu-open");
+
+        // ✅ CHANGE: Toggles based on animation class
+        if (mobileMenu.classList.contains("mobile-menu-open")) {
           menuIcon.classList.remove("fa-bars");
           menuIcon.classList.add("fa-times");
+        } else {
+          menuIcon.classList.remove("fa-times");
+          menuIcon.classList.add("fa-bars");
         }
       });
 

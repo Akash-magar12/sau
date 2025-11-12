@@ -100,9 +100,14 @@
         background: #bfa181;
         transition: width 0.3s ease;
       }
-      nav a:hover::after {
-        width: 100%;
+
+      /* ✅ CHANGE: Made hover effect for nav links desktop-only */
+      @media (min-width: 768px) {
+        nav a:not(.logo-link):hover::after {
+          width: 100%;
+        }
       }
+
       nav a.logo-link::after {
         display: none;
         content: none;
@@ -126,6 +131,12 @@
         -webkit-text-fill-color: transparent;
         background-clip: text;
       }
+
+      /* ✅ CHANGE: Added class for mobile menu animation */
+      .mobile-menu-open {
+        max-height: 500px !important; /* !important to override max-h-0 */
+        opacity: 1 !important; /* !important to override opacity-0 */
+      }
     </style>
   </head>
   <body class="bg-white text-dark overflow-x-hidden">
@@ -144,7 +155,7 @@
               <h2 class="text-lg sm:text-3xl font-bold text-dark">
                 Saubhagya Architects
               </h2>
-              <span class="text-base text-gray-500"
+              <span class="text-xs sm:text-base text-gray-500"
                 >Exceeding Expectations</span
               >
             </div>
@@ -187,7 +198,7 @@
 
       <div
         id="mobileMenu"
-        class="hidden md:hidden w-full glass border-t border-gray-200"
+        class="md:hidden w-full glass border-t border-gray-200 overflow-hidden max-h-0 opacity-0 transition-all duration-500 ease-in-out"
       >
         <a
           href="./index.html"
@@ -289,11 +300,13 @@
                 class="post-category mb-2 block text-sm font-semibold uppercase tracking-wide text-accent"
                 >Design Trends</span
               >
-              <h2 class="mb-4 text-4xl font-display font-bold text-dark">
+              <h2
+                class="mb-4 text-3xl sm:text-4xl font-display font-bold text-dark"
+              >
                 The Future of Sustainable Architecture
               </h2>
               <p
-                class="post-excerpt mb-4 text-base leading-relaxed text-gray-600"
+                class="post-excerpt mb-4 text-sm sm:text-base leading-relaxed text-gray-600"
               >
                 Exploring how net zero principles are reshaping residential and
                 commercial design. From material selection to energy efficiency,
@@ -312,7 +325,7 @@
           </article>
 
           <h2
-            class="grid-title mb-16 text-center text-5xl md:text-6xl font-display font-bold text-dark fade-in"
+            class="grid-title mb-16 text-center text-4xl sm:text-5xl md:text-6xl font-display font-bold text-dark fade-in"
           >
             Latest Articles
           </h2>
@@ -323,7 +336,7 @@
             >
               <div class="post-image h-52 w-full overflow-hidden">
                 <img
-                  src="https://images.pexels.com/photos/1457842/pexels-photo-1457842.jpeg?auto=compress&cs=tinysrgb&w=800"
+                  src="./assets/blog1.jpeg"
                   alt="Maximalist Interior Design"
                   class="h-full w-full object-cover transition-transform duration-400 group-hover:scale-105"
                 />
@@ -336,7 +349,7 @@
                 <h3 class="mb-3 text-2xl font-display font-bold text-dark">
                   Maximalist Interior Design: Making Bold Statements
                 </h3>
-                <p class="mb-4 text-base text-gray-600">
+                <p class="mb-4 text-sm sm:text-base text-gray-600">
                   How to balance abundance with elegance. A deep dive into
                   color, texture, and proportion.
                 </p>
@@ -356,7 +369,7 @@
             >
               <div class="post-image h-52 w-full overflow-hidden">
                 <img
-                  src="https://images.pexels.com/photos/1350789/pexels-photo-1350789.jpeg?auto=compress&cs=tinysrgb&w=800"
+                  src="./assets/blog2.jpeg"
                   alt="Workplace Design"
                   class="h-full w-full object-cover transition-transform duration-400 group-hover:scale-105"
                 />
@@ -369,7 +382,7 @@
                 <h3 class="mb-3 text-2xl font-display font-bold text-dark">
                   Designing for Hybrid Work: The New Office Standard
                 </h3>
-                <p class="mb-4 text-base text-gray-600">
+                <p class="mb-4 text-sm sm:text-base text-gray-600">
                   Flexibility, collaboration, and comfort. Creating workspaces
                   that adapt to modern work patterns.
                 </p>
@@ -389,7 +402,7 @@
             >
               <div class="post-image h-52 w-full overflow-hidden">
                 <img
-                  src="./assets/interior4.jpeg"
+                  src="./assets/blog3.jpeg"
                   alt="Heritage Restoration"
                   class="h-full w-full object-cover transition-transform duration-400 group-hover:scale-105"
                 />
@@ -402,7 +415,7 @@
                 <h3 class="mb-3 text-2xl font-display font-bold text-dark">
                   Preserving Heritage: Modern Restoration Practices
                 </h3>
-                <p class="mb-4 text-base text-gray-600">
+                <p class="mb-4 text-sm sm:text-base text-gray-600">
                   Respecting the past while embracing the future. Best practices
                   in heritage conservation and adaptive reuse projects.
                 </p>
@@ -422,7 +435,7 @@
             >
               <div class="post-image h-52 w-full overflow-hidden">
                 <img
-                  src="./assets/WhatsApp Image 2025-10-29 at 12.42.12_0031b798.jpg"
+                  src="./assets/blog4.jpeg"
                   alt="Lighting Design"
                   class="h-full w-full object-cover transition-transform duration-400 group-hover:scale-105"
                 />
@@ -435,7 +448,7 @@
                 <h3 class="mb-3 text-2xl font-display font-bold text-dark">
                   The Art of Architectural Lighting
                 </h3>
-                <p class="mb-4 text-base text-gray-600">
+                <p class="mb-4 text-sm sm:text-base text-gray-600">
                   Beyond visibility: how thoughtful lighting design creates
                   mood, highlights architecture, and impacts spatial experience.
                 </p>
@@ -455,7 +468,7 @@
             >
               <div class="post-image h-52 w-full overflow-hidden">
                 <img
-                  src="https://images.pexels.com/photos/129494/pexels-photo-129494.jpeg?auto=compress&cs=tinysrgb&w=800"
+                  src="./assets/blog5.jpeg"
                   alt="Material Trends"
                   class="h-full w-full object-cover transition-transform duration-400 group-hover:scale-105"
                 />
@@ -468,7 +481,7 @@
                 <h3 class="mb-3 text-2xl font-display font-bold text-dark">
                   Emerging Materials in Contemporary Architecture
                 </h3>
-                <p class="mb-4 text-base text-gray-600">
+                <p class="mb-4 text-sm sm:text-base text-gray-600">
                   From bio-concrete to recycled composites. Exploring materials
                   that combine sustainability with performance.
                 </p>
@@ -488,7 +501,7 @@
             >
               <div class="post-image h-52 w-full overflow-hidden">
                 <img
-                  src="./assets/WhatsApp Image 2025-10-29 at 12.42.12_b802e1e2.jpg"
+                  src="./assets/blog6.jpeg"
                   alt="Urban Design"
                   class="h-full w-full object-cover transition-transform duration-400 group-hover:scale-105"
                 />
@@ -501,7 +514,7 @@
                 <h3 class="mb-3 text-2xl font-display font-bold text-dark">
                   Building Sustainable Cities: Urban Design Innovation
                 </h3>
-                <p class="mb-4 text-base text-gray-600">
+                <p class="mb-4 text-sm sm:text-base text-gray-600">
                   Creating vibrant, livable communities through thoughtful urban
                   planning, mixed-use development, and public space design.
                 </p>
@@ -539,7 +552,7 @@
             >
               Stay Inspired, Stay Updated
             </h2>
-            <p class="text-lg text-gray-600 leading-relaxed">
+            <p class="text-base sm:text-lg text-gray-600 leading-relaxed">
               Subscribe for design stories, architecture insights, and our
               latest project updates — delivered once a month.
             </p>
@@ -578,14 +591,13 @@
                 <h2 class="text-lg font-bold text-dark">
                   Saubhagya Architects
                 </h2>
-                <span class="text-xs text-gray-600"
+                <span class="text-xs sm:text-sm text-gray-600"
                   >Exceeding Expectations</span
                 >
               </div>
             </div>
             <p class="text-gray-600 text-sm mb-6">
-              Exceeding expectations through creativity, precision, and
-              purposeful architectural design.
+              Luxury, wellness, and technology in flow.
             </p>
             <div class="flex gap-4">
               <a
@@ -615,7 +627,7 @@
             >
               Navigation
             </h4>
-            <ul class="space-y-3">
+            <ul class="space-y-3 text-base">
               <li>
                 <a
                   href="index.html"
@@ -653,7 +665,7 @@
             >
               Services
             </h4>
-            <ul class="space-y-3">
+            <ul class="space-y-3 text-base">
               <li>
                 <a
                   href="./pages/services/interior-design.html"
@@ -684,7 +696,7 @@
             >
               Contact
             </h4>
-            <ul class="space-y-3 text-gray-600">
+            <ul class="space-y-3 text-base text-gray-600">
               <li>Dehradun, India</li>
               <li>
                 <a href="tel:+919714851489" class="hover:text-dark transition"
@@ -743,13 +755,16 @@
       const menuIcon = menuBtn.querySelector("i");
 
       menuBtn.addEventListener("click", () => {
-        mobileMenu.classList.toggle("hidden");
-        if (mobileMenu.classList.contains("hidden")) {
-          menuIcon.classList.remove("fa-times");
-          menuIcon.classList.add("fa-bars");
-        } else {
+        // ✅ CHANGE: Toggles animation class instead of 'hidden'
+        mobileMenu.classList.toggle("mobile-menu-open");
+
+        // ✅ CHANGE: Toggles based on animation class
+        if (mobileMenu.classList.contains("mobile-menu-open")) {
           menuIcon.classList.remove("fa-bars");
           menuIcon.classList.add("fa-times");
+        } else {
+          menuIcon.classList.remove("fa-times");
+          menuIcon.classList.add("fa-bars");
         }
       });
 

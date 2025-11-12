@@ -83,9 +83,14 @@
         background: #bfa181;
         transition: width 0.3s ease;
       }
-      nav a:hover::after {
-        width: 100%;
+      
+      /* ✅ CHANGE: Made hover effect for nav links desktop-only */
+      @media (min-width: 768px) {
+        nav a:not(.logo-link):hover::after {
+          width: 100%;
+        }
       }
+
       nav a.logo-link::after {
         display: none;
         content: none;
@@ -111,6 +116,12 @@
       .project-gallery div:hover img {
         transform: scale(1.02);
       }
+      
+      /* ✅ CHANGE: Added class for mobile menu animation */
+      .mobile-menu-open {
+        max-height: 500px !important; /* !important to override max-h-0 */
+        opacity: 1 !important; /* !important to override opacity-0 */
+      }
     </style>
   </head>
 
@@ -133,7 +144,7 @@
               <h2 class="text-lg sm:text-3xl font-bold text-dark">
                 Saubhagya Architects
               </h2>
-              <span class="text-base text-gray-500"
+              <span class="text-xs sm:text-base text-gray-500"
                 >Exceeding Expectations</span
               >
             </div>
@@ -180,7 +191,7 @@
 
       <div
         id="mobileMenu"
-        class="hidden md:hidden w-full glass border-t border-gray-200"
+        class="md:hidden w-full glass border-t border-gray-200 overflow-hidden max-h-0 opacity-0 transition-all duration-500 ease-in-out"
       >
         <a
           href="../../index.html"
@@ -223,12 +234,12 @@
             >Residential Urban</span
           >
           <h1
-            class="text-5xl md:text-6xl font-display font-black mb-6 leading-tight "
+            class="text-5xl md:text-6xl font-display font-black mb-6 leading-tight"
           >
             The Verma Residence
           </h1>
           <p
-            class="sm:text-xl text-gray-600 mb-12 max-w-3xl leading-relaxed mx-auto md:mx-0"
+            class="text-base sm:text-xl text-gray-600 mb-12 max-w-3xl leading-relaxed mx-auto md:mx-0"
           >
             A bold and contemporary urban residence characterized by its massive
             stone facade and strategic use of glass to maximize privacy on a
@@ -251,7 +262,7 @@
             <h3 class="font-display font-bold text-2xl mb-2 text-dark">
               The Plot
             </h3>
-            <p class="text-gray-700">
+            <p class="text-gray-700 text-sm sm:text-base">
               Located on a narrow, high-traffic street, the challenge was
               creating spacious, light-filled interiors without sacrificing
               street-level privacy.
@@ -263,7 +274,7 @@
             <h3 class="font-display font-bold text-2xl mb-2 text-dark">
               Form & Material
             </h3>
-            <p class="text-gray-700">
+            <p class="text-gray-700 text-sm sm:text-base">
               The exterior pairs rough-hewn local stone with sharp metal
               accents. An internal double-height courtyard serves as the main
               light source.
@@ -275,7 +286,7 @@
             <h3 class="font-display font-bold text-2xl mb-2 text-dark">
               Key Features
             </h3>
-            <ul class="list-disc list-inside text-gray-700 space-y-2 pl-4">
+            <ul class="list-disc list-inside text-gray-700 space-y-2 pl-4 text-sm sm:text-base">
               <li class="pl-1">Central, glass-covered open-to-sky courtyard</li>
               <li class="pl-1">Minimalist kitchen designed for entertaining</li>
               <li class="pl-1">Integrated rainwater harvesting system</li>
@@ -285,7 +296,7 @@
         </div>
 
         <p
-          class="fade-in sm:text-xl leading-relaxed mb-16 border-l-4 border-accent pl-6 text-dark max-w-7xl mx-auto"
+          class="fade-in text-base sm:text-xl leading-relaxed mb-16 border-l-4 border-accent pl-6 text-dark max-w-7xl mx-auto"
         >
           The Verma Residence demonstrates how luxury and privacy can be
           achieved even in dense urban environments. The design effectively uses
@@ -336,12 +347,12 @@
         <hr class="border-gray-200 mb-12" />
 
         <div class="text-center fade-in">
-          <h2 class="text-3xl font-display font-bold text-dark mb-6">
+          <h2 class="text-2xl sm:text-3xl font-display font-bold text-dark mb-6">
             Ready to Design Your Modern Urban Home?
           </h2>
           <a
             href="../../contact.html"
-            class="inline-block bg-accent px-6 py-3 sm:px-10 sm:py-5 rounded-full font-bold text-white sm:text-lg hover:bg-accent/90 transition transform hover:scale-105 shadow-xl"
+            class="inline-block bg-accent px-6 py-3 sm:px-10 sm:py-5 rounded-full font-bold text-white text-sm sm:text-lg hover:bg-accent/90 transition transform hover:scale-105 shadow-xl"
           >
             Schedule a Consultation
           </a>
@@ -366,31 +377,30 @@
                 <h2 class="text-lg font-bold text-dark">
                   Saubhagya Architects
                 </h2>
-                <span class="text-xs text-gray-600"
+                <span class="text-xs sm:text-sm text-gray-600"
                   >Exceeding Expectations</span
                 >
               </div>
             </div>
             <p class="text-gray-600 text-sm mb-6">
-              Exceeding expectations through creativity, precision, and
-              purposeful architectural design.
+              Luxury, wellness, and technology in flow.
             </p>
             <div class="flex gap-4">
               <a
                 href="#"
-                class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-dark hover:bg-accent transition"
+                class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-dark hover:bg-accent hover:text-white transition"
               >
                 <i class="fab fa-instagram"></i>
               </a>
               <a
                 href="#"
-                class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-dark hover:bg-accent transition"
+                class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-dark hover:bg-accent hover:text-white transition"
               >
                 <i class="fab fa-linkedin"></i>
               </a>
               <a
                 href="mailto:hello@saubhagya.com"
-                class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-dark hover:bg-accent transition"
+                class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-dark hover:bg-accent hover:text-white transition"
               >
                 <i class="fas fa-envelope"></i>
               </a>
@@ -403,7 +413,7 @@
             >
               Navigation
             </h4>
-            <ul class="space-y-3">
+            <ul class="space-y-3 text-base">
               <li>
                 <a
                   href="../../index.html"
@@ -441,7 +451,7 @@
             >
               Services
             </h4>
-            <ul class="space-y-3">
+            <ul class="space-y-3 text-base">
               <li>
                 <a
                   href="../../pages/services/interior-design.html"
@@ -472,7 +482,7 @@
             >
               Contact
             </h4>
-            <ul class="space-y-3 text-gray-600">
+            <ul class="space-y-3 text-base text-gray-600">
               <li>Dehradun, India</li>
               <li>
                 <a href="tel:+919876543210" class="hover:text-dark transition"
@@ -527,14 +537,16 @@
       const menuIcon = menuBtn.querySelector("i");
 
       menuBtn.addEventListener("click", () => {
-        const isHidden = mobileMenu.classList.toggle("hidden");
-        // Update icon based on visibility state
-        if (isHidden) {
-          menuIcon.classList.remove("fa-times");
-          menuIcon.classList.add("fa-bars");
-        } else {
+        // ✅ CHANGE: Toggles animation class instead of 'hidden'
+        mobileMenu.classList.toggle("mobile-menu-open");
+        
+        // ✅ CHANGE: Toggles based on animation class
+        if (mobileMenu.classList.contains("mobile-menu-open")) {
           menuIcon.classList.remove("fa-bars");
           menuIcon.classList.add("fa-times");
+        } else {
+           menuIcon.classList.remove("fa-times");
+          menuIcon.classList.add("fa-bars");
         }
       });
 

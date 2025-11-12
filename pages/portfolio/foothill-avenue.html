@@ -18,12 +18,14 @@
     <link rel="shortcut icon" href="../../assets/logo.png" type="image/png" />
 
     <script src="https://cdn.tailwindcss.com"></script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&family=Playfair+Display:wght@700;900&display=swap"
       rel="stylesheet"
     />
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -35,7 +37,7 @@
           extend: {
             colors: {
               accent: "#bfa181", // Classic beige/gold accent
-              dark: "#1f2937", // Dark gray for text
+              dark: "#1f2937", // Rich dark gray
             },
             fontFamily: {
               sans: ["Montserrat", "sans-serif"],
@@ -57,20 +59,24 @@
           transform: translateY(0);
         }
       }
+
       .fade-in {
         opacity: 0;
         transform: translateY(20px);
         transition: opacity 0.8s cubic-bezier(0.165, 0.84, 0.44, 1),
           transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
       }
+
       .fade-in.visible {
         opacity: 1;
         transform: translateY(0);
       }
+
       nav a {
         position: relative;
         transition: color 0.3s ease;
       }
+
       nav a::after {
         content: "";
         position: absolute;
@@ -81,23 +87,36 @@
         background: #bfa181;
         transition: width 0.3s ease;
       }
-      nav a:hover::after {
-        width: 100%;
+
+      /* ✅ CHANGE: Made hover effect for nav links desktop-only */
+      @media (min-width: 768px) {
+        nav a:not(.logo-link):hover::after {
+          width: 100%;
+        }
       }
+
       /* Disable underline effect on logo link */
       .logo-link:hover::after {
         width: 0 !important;
       }
+
       .glass {
         background: rgba(255, 255, 255, 0.8);
-        backdrop-filter: blur(10px);
+        backdrop-filter: blur(12px);
         border: 1px solid rgba(255, 255, 255, 0.2);
       }
+
       .text-gradient {
         background: linear-gradient(135deg, #c3a688 0%, #8b7355 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
-        background-clip: text;
+        background-clip: text; /* Ensure compatibility */
+      }
+
+      /* ✅ CHANGE: Added class for mobile menu animation */
+      .mobile-menu-open {
+        max-height: 500px !important; /* !important to override max-h-0 */
+        opacity: 1 !important; /* !important to override opacity-0 */
       }
     </style>
   </head>
@@ -121,7 +140,7 @@
               <h2 class="text-lg sm:text-3xl font-bold text-dark">
                 Saubhagya Architects
               </h2>
-              <span class="text-base text-gray-500"
+              <span class="text-xs sm:text-base text-gray-500"
                 >Exceeding Expectations</span
               >
             </div>
@@ -168,7 +187,7 @@
 
       <div
         id="mobileMenu"
-        class="hidden md:hidden w-full glass border-t border-gray-200"
+        class="md:hidden w-full glass border-t border-gray-200 overflow-hidden max-h-0 opacity-0 transition-all duration-500 ease-in-out"
       >
         <a
           href="../../index.html"
@@ -216,7 +235,7 @@
             Foothill Avenue
           </h1>
           <p
-            class="sm:text-xl text-gray-600 mb-12 max-w-3xl leading-relaxed mx-auto md:mx-0"
+            class="text-base sm:text-xl text-gray-600 mb-12 max-w-3xl leading-relaxed mx-auto md:mx-0"
           >
             An exclusive residential development comprising ten custom-designed
             villas, masterfully positioned to maximize privacy and views of the
@@ -239,7 +258,7 @@
             <h3 class="font-display font-bold text-2xl mb-2 text-dark">
               Master Planning
             </h3>
-            <p class="text-gray-700">
+            <p class="text-gray-700 text-sm sm:text-base">
               The site plan carefully considers topography and sun paths,
               ensuring each villa benefits from natural light and unobstructed
               views while minimizing mutual sightlines.
@@ -252,7 +271,7 @@
             <h3 class="font-display font-bold text-2xl mb-2 text-dark">
               Villa Design
             </h3>
-            <p class="text-gray-700">
+            <p class="text-gray-700 text-sm sm:text-base">
               Each villa blends traditional materials (slate, stone) with modern
               minimalist forms, featuring expansive outdoor decks and internal
               courtyards.
@@ -265,7 +284,9 @@
             <h3 class="font-display font-bold text-2xl mb-2 text-dark">
               Community Amenities
             </h3>
-            <ul class="list-disc list-inside text-gray-700 space-y-2 pl-4">
+            <ul
+              class="list-disc list-inside text-gray-700 space-y-2 pl-4 text-sm sm:text-base"
+            >
               <li class="pl-1">Central landscaped gathering space</li>
               <li class="pl-1">24/7 guarded security and gated entry</li>
               <li class="pl-1">
@@ -277,7 +298,7 @@
         </div>
 
         <p
-          class="fade-in sm:text-xl leading-relaxed mb-16 border-l-4 border-accent pl-6 text-dark max-w-7xl mx-auto"
+          class="fade-in text-base sm:text-xl leading-relaxed mb-16 border-l-4 border-accent pl-6 text-dark max-w-7xl mx-auto"
         >
           Foothill Avenue is the pinnacle of serene, luxurious living. Our
           integrated design approach managed the entire process, from
@@ -293,46 +314,41 @@
         >
           Project Gallery
         </h2>
+
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-16">
-          <div class="fade-in">
-            <img
-              src="../../assets/foothill-entrance.jpg"
-              alt="Foothill Avenue - Entrance"
-              class="w-full h-96 object-cover rounded-md shadow-xl transition-transform duration-300 hover:scale-[1.02]"
-            />
-          </div>
-          <div class="fade-in">
-            <img
-              src="../../assets/foothill-living.jpg"
-              alt="Foothill Avenue - Interior living room"
-              class="w-full h-96 object-cover rounded-md shadow-xl transition-transform duration-300 hover:scale-[1.02]"
-            />
-          </div>
-          <div class="fade-in">
-            <img
-              src="../../assets/foothill-kitchen.jpg"
-              alt="Foothill Avenue - Kitchen"
-              class="w-full h-96 object-cover rounded-md shadow-xl transition-transform duration-300 hover:scale-[1.02]"
-            />
-          </div>
-          <div class="fade-in">
-            <img
-              src="../../assets/foothill-bedroom.jpg"
-              alt="Foothill Avenue - Master bedroom view"
-              class="w-full h-96 object-cover rounded-md shadow-xl transition-transform duration-300 hover:scale-[1.02]"
-            />
-          </div>
+          <img
+            src="../../assets/foothill-entrance.jpg"
+            alt="Foothill Avenue - Entrance"
+            class="fade-in w-full h-96 object-cover rounded-md shadow-xl transition-transform duration-300 hover:scale-[1.02]"
+          />
+          <img
+            src="../../assets/foothill-living.jpg"
+            alt="Foothill Avenue - Interior living room"
+            class="fade-in w-full h-96 object-cover rounded-md shadow-xl transition-transform duration-300 hover:scale-[1.02]"
+          />
+          <img
+            src="../../assets/foothill-kitchen.jpg"
+            alt="Foothill Avenue - Kitchen"
+            class="fade-in w-full h-96 object-cover rounded-md shadow-xl transition-transform duration-300 hover:scale-[1.02]"
+          />
+          <img
+            src="../../assets/foothill-bedroom.jpg"
+            alt="Foothill Avenue - Master bedroom view"
+            class="fade-in w-full h-96 object-cover rounded-md shadow-xl transition-transform duration-300 hover:scale-[1.02]"
+          />
         </div>
 
         <hr class="border-gray-200 mb-12" />
 
         <div class="text-center fade-in">
-          <h2 class="text-3xl font-display font-bold text-dark mb-6">
+          <h2
+            class="text-2xl sm:text-3xl font-display font-bold mb-6 text-dark"
+          >
             Ready to Build Your Own Exclusive Sanctuary?
           </h2>
           <a
             href="../../contact.html"
-            class="inline-block bg-accent px-6 py-3 sm:px-10 sm:py-5 rounded-full font-bold text-white sm:text-lg hover:bg-accent/90 transition transform hover:scale-105 shadow-xl"
+            class="inline-block bg-accent px-6 py-3 sm:px-10 sm:py-5 rounded-full font-bold text-white text-sm sm:text-lg hover:bg-accent/90 transition transform hover:scale-105 shadow-xl"
           >
             Schedule a Consultation
           </a>
@@ -348,34 +364,39 @@
               <div
                 class="w-14 h-14 rounded-full flex items-center justify-center p-2"
               >
-                <img src="../../assets/logo.png" alt="Saubhagya Architects Logo" />
+                <img
+                  src="../../assets/logo.png"
+                  alt="Saubhagya Architects Logo"
+                />
               </div>
               <div>
-                <h2 class="text-lg font-bold text-dark">Saubhagya Architects</h2>
-                <span class="text-xs text-gray-600">Exceeding Expectations</span>
+                <h2 class="text-lg font-bold text-dark">
+                  Saubhagya Architects
+                </h2>
+                <span class="text-xs sm:text-sm text-gray-600"
+                  >Exceeding Expectations</span
+                >
               </div>
             </div>
-            </div>
             <p class="text-gray-600 text-sm mb-6">
-              Exceeding expectations through creativity, precision, and
-              purposeful architectural design.
+              Luxury, wellness, and technology in flow.
             </p>
             <div class="flex gap-4">
               <a
                 href="#"
-                class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-dark hover:bg-accent transition"
+                class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-dark hover:bg-accent hover:text-white transition"
               >
                 <i class="fab fa-instagram"></i>
               </a>
               <a
                 href="#"
-                class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-dark hover:bg-accent transition"
+                class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-dark hover:bg-accent hover:text-white transition"
               >
                 <i class="fab fa-linkedin"></i>
               </a>
               <a
                 href="mailto:hello@saubhagya.com"
-                class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-dark hover:bg-accent transition"
+                class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-dark hover:bg-accent hover:text-white transition"
               >
                 <i class="fas fa-envelope"></i>
               </a>
@@ -388,7 +409,7 @@
             >
               Navigation
             </h4>
-            <ul class="space-y-3">
+            <ul class="space-y-3 text-base">
               <li>
                 <a
                   href="../../index.html"
@@ -426,7 +447,7 @@
             >
               Services
             </h4>
-            <ul class="space-y-3">
+            <ul class="space-y-3 text-base">
               <li>
                 <a
                   href="../../pages/services/interior-design.html"
@@ -457,7 +478,7 @@
             >
               Contact
             </h4>
-            <ul class="space-y-3 text-gray-600">
+            <ul class="space-y-3 text-base text-gray-600">
               <li>Dehradun, India</li>
               <li>
                 <a href="tel:+919876543210" class="hover:text-dark transition"
@@ -512,30 +533,33 @@
       const menuIcon = menuBtn.querySelector("i");
 
       menuBtn.addEventListener("click", () => {
-        const isHidden = mobileMenu.classList.toggle("hidden");
-        if (isHidden) {
-          menuIcon.classList.remove("fa-times");
-          menuIcon.classList.add("fa-bars");
-        } else {
+        // ✅ CHANGE: Toggles animation class instead of 'hidden'
+        mobileMenu.classList.toggle("mobile-menu-open");
+
+        // ✅ CHANGE: Toggles based on animation class
+        if (mobileMenu.classList.contains("mobile-menu-open")) {
           menuIcon.classList.remove("fa-bars");
           menuIcon.classList.add("fa-times");
+        } else {
+          menuIcon.classList.remove("fa-times");
+          menuIcon.classList.add("fa-bars");
         }
       });
 
-      // --- Fade-in on Scroll ---
+      // --- Fade-in animation on scroll ---
+      const fadeElements = document.querySelectorAll(".fade-in");
       const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
               entry.target.classList.add("visible");
+              observer.unobserve(entry.target);
             }
           });
         },
         { threshold: 0.1 }
       );
-
-      const fadeInElements = document.querySelectorAll(".fade-in");
-      fadeInElements.forEach((el) => observer.observe(el));
+      fadeElements.forEach((el) => observer.observe(el));
     </script>
   </body>
 </html>

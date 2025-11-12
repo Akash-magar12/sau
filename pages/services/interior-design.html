@@ -15,7 +15,6 @@
     />
     <meta name="author" content="Saubhagya Architects" />
     <link rel="shortcut icon" href="../../assets/logo.png" type="image/png" />
-
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -98,8 +97,12 @@
         background: #bfa181;
         transition: width 0.3s ease;
       }
-      nav a:hover::after {
-        width: 100%;
+
+      /* ✅ CHANGE: Made hover effect for nav links desktop-only */
+      @media (min-width: 768px) {
+        nav a:not(.logo-link):hover::after {
+          width: 100%;
+        }
       }
 
       nav a.logo-link::after {
@@ -125,6 +128,12 @@
         -webkit-text-fill-color: transparent;
         background-clip: text;
       }
+
+      /* ✅ CHANGE: Added class for mobile menu animation */
+      .mobile-menu-open {
+        max-height: 500px !important; /* !important to override max-h-0 */
+        opacity: 1 !important; /* !important to override opacity-0 */
+      }
     </style>
   </head>
   <body class="bg-white text-dark overflow-x-hidden">
@@ -146,7 +155,7 @@
               <h2 class="text-lg sm:text-3xl font-bold text-dark">
                 Saubhagya Architects
               </h2>
-              <span class="text-base text-gray-500"
+              <span class="text-xs sm:text-base text-gray-500"
                 >Exceeding Expectations</span
               >
             </div>
@@ -193,7 +202,7 @@
 
       <div
         id="mobileMenu"
-        class="hidden md:hidden w-full glass border-t border-gray-200"
+        class="md:hidden w-full glass border-t border-gray-200 overflow-hidden max-h-0 opacity-0 transition-all duration-500 ease-in-out"
       >
         <a
           href="../../index.html"
@@ -228,7 +237,7 @@
       </div>
     </nav>
 
-    <main>
+    <main class="pt-20">
       <section class="relative h-screen flex items-center">
         <div class="absolute inset-0 z-0">
           <div
@@ -268,7 +277,9 @@
             >
               Interior Design
             </h1>
-            <p class="sm:text-xl text-gray-300 mb-8 max-w-2xl leading-relaxed">
+            <p
+              class="text-base sm:text-xl text-gray-300 mb-8 max-w-2xl leading-relaxed"
+            >
               We design interiors that are more than just beautiful—they are a
               reflection of you. We create functional, comfortable, and timeless
               spaces.
@@ -295,7 +306,9 @@
             >
               Expert Interior Design in Dehradun
             </h2>
-            <p class="text-lg text-gray-600 leading-relaxed">
+            <p
+              class="text-base sm:text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto"
+            >
               At Saubhagya Architects, we create functional, comfortable, and
               timeless spaces that enhance your daily life. From modern homes to
               dynamic workplaces in Dehradun, our team handles every detail to
@@ -365,7 +378,7 @@
                 <h3 class="text-2xl font-display font-bold text-dark mt-4 mb-2">
                   Custom Furniture
                 </h3>
-                <p class="text-gray-600 leading-relaxed">
+                <p class="text-gray-600 text-sm sm:text-base leading-relaxed">
                   We design bespoke furniture that fits your space perfectly,
                   from built-in wardrobes and media walls to one-of-a-kind
                   tables and seating.
@@ -380,7 +393,7 @@
                 <h3 class="text-2xl font-display font-bold text-dark mt-4 mb-2">
                   Lighting Design
                 </h3>
-                <p class="text-gray-600 leading-relaxed">
+                <p class="text-gray-600 text-sm sm:text-base leading-relaxed">
                   We create layered lighting plans—blending ambient, task, and
                   accent lighting—to build atmosphere and enhance functionality.
                 </p>
@@ -394,7 +407,7 @@
                 <h3 class="text-2xl font-display font-bold text-dark mt-4 mb-2">
                   Material Selection
                 </h3>
-                <p class="text-gray-600 leading-relaxed">
+                <p class="text-gray-600 text-sm sm:text-base leading-relaxed">
                   We guide you through selecting durable surfaces, rich
                   textures, and sustainable materials that age gracefully and
                   create a warm, cohesive look.
@@ -408,7 +421,7 @@
               href="https://wa.me/919876543210?text=Hi%20Saubhagya%20Architects%20—%20Enquiry:%20Interior Design"
               target="_blank"
               rel="noopener"
-              class="inline-block bg-accent px-6 py-3 sm:px-10 sm:py-5 rounded-full font-bold text-white sm:text-lg hover:bg-accent/90 transition transform hover:scale-105"
+              class="inline-block bg-accent px-6 py-3 sm:px-10 sm:py-5 rounded-full font-bold text-white text-sm sm:text-lg hover:bg-accent/90 transition transform hover:scale-105"
             >
               Start Your Interior Project
             </a>
@@ -433,14 +446,13 @@
                   <h2 class="text-lg font-bold text-dark">
                     Saubhagya Architects
                   </h2>
-                  <span class="text-xs text-gray-600"
+                  <span class="text-xs sm:text-sm text-gray-600"
                     >Exceeding Expectations</span
                   >
                 </div>
               </div>
               <p class="text-gray-600 text-sm mb-6">
-                Exceeding expectations through creativity, precision, and
-                purposeful architectural design.
+                Luxury, wellness, and technology in flow.
               </p>
               <div class="flex gap-4">
                 <a
@@ -470,7 +482,7 @@
               >
                 Navigation
               </h4>
-              <ul class="space-y-3">
+              <ul class="space-y-3 text-base">
                 <li>
                   <a
                     href="../../index.html"
@@ -508,7 +520,7 @@
               >
                 Services
               </h4>
-              <ul class="space-y-3">
+              <ul class="space-y-3 text-base">
                 <li>
                   <a
                     href="../../pages/services/interior-design.html"
@@ -539,7 +551,7 @@
               >
                 Contact
               </h4>
-              <ul class="space-y-3 text-gray-600">
+              <ul class="space-y-3 text-base text-gray-600">
                 <li>Dehradun, India</li>
                 <li>
                   <a href="tel:+919876543210" class="hover:text-dark transition"
@@ -594,20 +606,23 @@
       const menuIcon = menuBtn.querySelector("i");
 
       menuBtn.addEventListener("click", () => {
-        mobileMenu.classList.toggle("hidden");
-        if (mobileMenu.classList.contains("hidden")) {
-          menuIcon.classList.remove("fa-times");
-          menuIcon.classList.add("fa-bars");
-        } else {
+        // ✅ CHANGE: Toggles animation class instead of 'hidden'
+        mobileMenu.classList.toggle("mobile-menu-open");
+
+        // ✅ CHANGE: Toggles based on animation class
+        if (mobileMenu.classList.contains("mobile-menu-open")) {
           menuIcon.classList.remove("fa-bars");
           menuIcon.classList.add("fa-times");
+        } else {
+          menuIcon.classList.remove("fa-times");
+          menuIcon.classList.add("fa-bars");
         }
       });
 
       // --- Hero Slideshow ---
       const slides = document.querySelectorAll(".hero-slide");
       let currentSlide = 0;
-      const slideInterval = 3000;
+      const slideInterval = 3000; // Was 5000 in original, changed to 3000
 
       function nextSlide() {
         if (slides.length === 0) return;
